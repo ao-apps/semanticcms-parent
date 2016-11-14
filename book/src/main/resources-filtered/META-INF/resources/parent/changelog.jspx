@@ -1,0 +1,78 @@
+<!--
+semanticcms-parent - Parent POM for all SemanticCMS packages.
+Copyright (C) 2016  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
+
+This file is part of semanticcms-parent.
+
+semanticcms-parent is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-parent is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
+-->
+<jsp:root
+	xmlns:ao="https://aoindustries.com/ao-taglib/"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+	xmlns:core="https://semanticcms.com/core/taglib/"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	version="2.1"
+>
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
+	<!-- TODO: https://schema.org/TechArticle on this page -->
+	<core:page
+		title="@{documented.name} Changelog"
+		shortTitle="Changelog"
+		tocLevels="1"
+		datePublished="2016-11-13T18:03:31-0600"
+		dateModified="2016-11-13T21:10:46-0600"
+	>
+		<!-- The current snapshot, unreleased version -->
+		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
+		<ao:assert
+			test="${!fn:startsWith(version, '@')}"
+			message="Version not substituted: #{version}"
+		/>
+		<c:if test="${fn:endsWith(version, '-SNAPSHOT')}">
+			<changelog:release
+				projectName="@{documented.name}"
+				version="#{version}"
+				groupId="@{documented.groupId}"
+				artifactId="@{documented.artifactId}"
+				scmUrl="@{documented.scm.url}"
+			>
+				<ul>
+					<li>
+						<p>
+							New parent POM, separate from aggregator POMs, to allow the addition of
+							modules without having to also release untouched modules within the same
+							overall project.
+						</p>
+						<p>
+							Previously, adding a module to the aggregator would
+							increment its version, which would then propagate all the way down to
+							update the parents of all modules.  Since our projects are extremely
+							modular, this forced releases where only the parent version was modified.
+						</p>
+						<p>
+							We recommend a separation of parent and aggregator <code>pom.xml</code>
+							for any multi-module Maven project where each module is released
+							independently.
+						</p>
+					</li>
+				</ul>
+			</changelog:release>
+		</c:if>
+	</core:page>
+</jsp:root>
