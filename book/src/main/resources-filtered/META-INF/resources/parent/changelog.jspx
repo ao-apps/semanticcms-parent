@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2016-11-13T21:10:46-0600"
+		dateModified="2016-11-15T16:57:58-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -51,28 +51,37 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{documented.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
-			>
-				<ul>
-					<li>
-						<p>
-							New parent POM, separate from aggregator POMs, to allow the addition of
-							modules without having to also release untouched modules within the same
-							overall project.
-						</p>
-						<p>
-							Previously, adding a module to the aggregator would
-							increment its version, which would then propagate all the way down to
-							update the parents of all modules.  Since our projects are extremely
-							modular, this forced releases where only the parent version was modified.
-						</p>
-						<p>
-							We recommend a separation of parent and aggregator <code>pom.xml</code>
-							for any multi-module Maven project where each module is released
-							independently.
-						</p>
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.0.0"
+			datePublished="2016-11-15T16:57:58-0600"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>
+					<p>
+						New parent POM, separate from aggregator POMs, to allow the addition of
+						modules without having to also release untouched modules within the same
+						overall project.
+					</p>
+					<p>
+						Previously, adding a module to the aggregator would
+						increment its version, which would then propagate all the way down to
+						update the parents of all modules.  Since our projects are extremely
+						modular, this forced releases where only the parent version was modified.
+					</p>
+					<p>
+						We recommend a separation of parent and aggregator <code>pom.xml</code>
+						for any multi-module Maven project where each module is released
+						independently.
+					</p>
+				</li>
+			</ul>
+		</changelog:release>
 	</core:page>
 </jsp:root>
