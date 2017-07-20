@@ -64,6 +64,12 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				<version>2.4</version>
 				<configuration>
 					<excludes>
+						<!-- Stay on Java EE Web API 6 -->
+						<exclude>javax.servlet:javax.servlet-api</exclude>
+						<exclude>javax.el:javax.el-api</exclude>
+						<exclude>javax.servlet.jsp:javax.servlet.jsp-api</exclude>
+						<exclude>javax.servlet:jstl</exclude>
+						<exclude>org.glassfish.web:jstl-impl</exclude>
 						<!-- Stay on D3 3.* -->
 						<exclude>org.webjars:d3js</exclude>
 						<!-- Stay on jQuery 2.* -->
