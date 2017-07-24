@@ -40,7 +40,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<javadoc.breadcrumbs><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="_top" href="${project.url}">${shortTitle}</a>]]></javadoc.breadcrumbs>
 		<shortTitle>Parent</shortTitle>
-		<google.analytics.trackingId>UA-86870445-1</google.analytics.trackingId>
+		<google.analytics.trackingId>UA-86871646-2</google.analytics.trackingId>
 	</properties>
 
 	<name>SemanticCMS Parent</name>
