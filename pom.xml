@@ -25,15 +25,11 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.aoindustries</groupId>
-		<artifactId>ao-oss-parent</artifactId>
-		<version>1.0.3</version>
+		<groupId>com.aoindustries</groupId><artifactId>ao-oss-parent</artifactId><version>1.0.3</version>
 		<relativePath>../../ao-oss-parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId>
-	<artifactId>semanticcms-parent</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -59,9 +55,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.4</version>
+				<groupId>org.codehaus.mojo</groupId><artifactId>versions-maven-plugin</artifactId><version>2.4</version>
 				<configuration>
 					<excludes>
 						<!-- Stay on Java EE Web API 6 -->
