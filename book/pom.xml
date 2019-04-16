@@ -34,7 +34,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 	<properties>
 		<!-- These values are copied from the project being documented -->
 		<documented.groupId>com.semanticcms</documented.groupId><documented.artifactId>semanticcms-parent</documented.artifactId>
-		<documented.name>SemanticCMS 1 Parent</documented.name>
+		<documented.name>SemanticCMS Parent</documented.name>
 		<documented.shortTitle>Parent</documented.shortTitle>
 		<documented.url>https://semanticcms.com/parent/</documented.url>
 		<documented.description>Parent POM for all SemanticCMS packages.</documented.description>
