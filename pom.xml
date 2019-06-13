@@ -64,10 +64,6 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						<exclude>javax.servlet.jsp:javax.servlet.jsp-api</exclude>
 						<exclude>javax.servlet:jstl</exclude>
 						<exclude>org.glassfish.web:jstl-impl</exclude>
-						<!-- Stay on D3 3.* -->
-						<exclude>org.webjars:d3js</exclude>
-						<!-- Stay on jQuery 2.* -->
-						<exclude>org.webjars:jquery</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
