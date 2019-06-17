@@ -51,22 +51,4 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<url>https://github.com/aoindustries/${project.artifactId}</url>
 		<tag>HEAD</tag>
 	</scm>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId><artifactId>versions-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<!-- Stay on Java EE Web API 6 -->
-						<exclude>javax.servlet:javax.servlet-api</exclude>
-						<exclude>javax.el:javax.el-api</exclude>
-						<exclude>javax.servlet.jsp:javax.servlet.jsp-api</exclude>
-						<exclude>javax.servlet:jstl</exclude>
-						<exclude>org.glassfish.web:jstl-impl</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
