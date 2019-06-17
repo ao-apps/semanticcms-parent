@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2019-06-17T11:02:47-0500"
+		dateModified="2019-06-17T13:35:53-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -55,7 +55,13 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				<ul>
 					<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
 					<li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
-					<li>No longer excluding Java EE Web API 6 from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
+					<li>
+						No longer excluding
+						<ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
+						from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
+						Instead, projects are encouraged to use the new
+						<ao:a href="https://aoindustries.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
