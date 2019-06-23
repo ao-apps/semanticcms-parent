@@ -70,7 +70,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						This profile is not active by default.
 						Activate in <code>~/.m2/settings.xml</code> to use post-release builds as dependencies:
 					</p>
-<pre>		&lt;profile&gt;
+<pre><![CDATA[		&lt;profile&gt;
 			&lt;id&gt;POST-SNAPSHOT&lt;/id&gt;
 			&lt;activation&gt;
 				&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
@@ -78,7 +78,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 			&lt;properties&gt;
 				&lt;POST-SNAPSHOT&gt;-POST-SNAPSHOT&lt;/POST-SNAPSHOT&gt;
 			&lt;/properties&gt;
-		&lt;/profile&gt;</pre>
+		&lt;/profile&gt;]]></pre>
 					<p>
 						This profile must not be active while performing a release.  Deactivate with:
 					</p>
