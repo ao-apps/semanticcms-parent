@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2019-06-23T11:41:15-0500"
+		dateModified="2019-06-23T12:02:41-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -87,7 +87,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						Post-release builds happen after a release and before a new -SNAPSHOT is
 						started.  They are used to ensure that previous releases still compile
 						against newer dependencies.
-					<p>
+					</p>
 					<p>
 						Furthermore, post-release builds may contain the following changes without
 						being promoted to the next -SNAPSHOT version:
