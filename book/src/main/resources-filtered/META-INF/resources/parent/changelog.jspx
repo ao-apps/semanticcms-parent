@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2019-07-22T04:39:27-0500"
+		dateModified="2019-09-24T21:09:15-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -63,6 +63,13 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							Also enabled <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#filteringDeploymentDescriptors">filteringDeploymentDescriptors</ao:a>
 							by default.
 						</p>
+					</li>
+					<li>Java updates:
+						<ol type="a">
+							<li>Java 12 is now end-of-life</li>
+							<li>Java 13 is now current stable</li>
+							<li>Java 14 is new beta</li>
+						</ol>
 					</li>
 				</ul>
 			</changelog:release>
