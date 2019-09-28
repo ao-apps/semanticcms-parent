@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2019-06-17T13:35:53-0500"
+		dateModified="2019-09-24T21:09:15-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -53,18 +53,124 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				scmUrl="@{documented.scm.url}"
 			>
 				<ul>
-					<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
-					<li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
 					<li>
-						No longer excluding
-						<ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
-						from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
-						Instead, projects are encouraged to use the new
-						<ao:a href="https://aoindustries.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+						<p>
+							Set delimiters for <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a>
+							to match the configuration of <ao:a href="https://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</ao:a>,
+							using <code>@{*}</code>.
+						</p>
+						<p>
+							Also enabled <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#filteringDeploymentDescriptors">filteringDeploymentDescriptors</ao:a>
+							by default.
+						</p>
+					</li>
+					<li>Java updates:
+						<ol type="a">
+							<li>Java 12 is now end-of-life</li>
+							<li>Java 13 is now current stable</li>
+							<li>Java 14 is new beta</li>
+						</ol>
 					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.3.1"
+			datePublished="2019-06-29T18:38:31-0500"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>
+					Changed <code>Include-Resource</code> to <code>{maven-resources}, target/resources-filtered</code>
+					in order to not leak full build paths into <code>META-INF/MANIFEST.MF</code>
+				</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.3.0"
+			datePublished="2019-06-23T11:41:15-0500"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
+				<li>New profile "POST-SNAPSHOT" that enables the use of
+					post-release builds as dependencies.
+					<p>
+						This profile is not active by default.
+						Activate in <code>~/.m2/settings.xml</code> to use post-release builds as dependencies:
+					</p>
+<pre><![CDATA[		&lt;profile&gt;
+			&lt;id&gt;POST-SNAPSHOT&lt;/id&gt;
+			&lt;activation&gt;
+				&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+			&lt;/activation&gt;
+			&lt;properties&gt;
+				&lt;POST-SNAPSHOT&gt;-POST-SNAPSHOT&lt;/POST-SNAPSHOT&gt;
+			&lt;/properties&gt;
+		&lt;/profile&gt;]]></pre>
+					<p>
+						This profile must not be active while performing a release.  Deactivate with:
+					</p>
+					<pre>mvn -Prelease,'!POST-SNAPSHOT' …</pre>
+					<p>
+						Post-release builds happen after a release and before a new -SNAPSHOT is
+						started.  They are used to ensure that previous releases still compile
+						against newer dependencies.
+					</p>
+					<p>
+						Furthermore, post-release builds may contain the following changes without
+						being promoted to the next -SNAPSHOT version:
+					</p>
+					<ol>
+						<li>Updated parent POM</li>
+						<li>Updated POM</li>
+						<li>Updated Java version (without any source code changes)</li>
+						<li>Updated dependency versions</li>
+						<li>Updated javadocs</li>
+						<li>Updated documentation</li>
+						<li>Updated unit tests</li>
+						<li>Other changes to white-space or comments</li>
+					</ol>
+					<p>
+						Post-release builds also allow NetBeans to correctly connect projects
+						together for those who are actively developing multiple modules.
+					</p>
+					<p>
+						Those who are only using the dependency can use the regular release to
+						avoid the overhead of the daily check for updates.
+					</p>
+				</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.2.0"
+			datePublished="2019-06-19T08:29:25-0500"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
+				<li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
+				<li>
+					No longer excluding
+					<ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
+					from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
+					Instead, projects are encouraged to use the new
+					<ao:a href="https://aoindustries.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
