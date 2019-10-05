@@ -36,7 +36,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2019-10-04T20:02:31-0500"
+		dateModified="2019-10-05T18:43:35-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -146,6 +146,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						<li>Updated javadocs</li>
 						<li>Updated documentation</li>
 						<li>Updated unit tests</li>
+						<li>Deprecated methods and classes</li>
+						<li>Renamed private fields and local variables</li>
 						<li>Other changes to white-space or comments</li>
 					</ol>
 					<p>
