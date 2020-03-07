@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-03-07T06:01:29-0600"
+		dateModified="2020-03-07T08:38:21-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -54,11 +54,48 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
+					<li>Changed default Java version from 1.7 to 1.8</li>
 					<li>
 						Reduced use of property substitutions in <code>pom.xml</code>.
 						This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
 					</li>
 					<li>Now setting build properties <code>maven.compiler.source</code> and <code>maven.compiler.target</code>.</li>
+					<li>
+						Now setting build property <code>javadoc.link.javamail</code> in parent POM
+						instead of on a per-project basis.
+					</li>
+					<li>
+						Now setting builds properties <code>documented.javase.version</code> and <code>documented.javadoc.link.javase</code>
+						in parent POM, with the default Java version (currently 1.8).  This allows books to not specify
+						the Java version of the documented project when it is the default.
+					</li>
+					<li>
+						Renamed some build properties to better represent their usage:
+						<ol>
+							<li>
+								Consolidated build properties <code>compiler.bootclasspath</code> and <code>javac.bootclasspath</code>
+								into a single property <code>java.bootclasspath</code>.
+							</li>
+							<li><code>javaVersion</code>                   to <code>javase.version</code></li>
+							<li><code>javac.link.javaApi</code>            to <code>javadoc.link.javase</code></li>
+							<li><code>javac.link.javaApi.jdk*</code>       to <code>javadoc.link.javase.*</code></li>
+							<li><code>javac.link.javaeeApi.*</code>        to <code>javadoc.link.javaee.*</code></li>
+							<li><code>javac.link.javamailApi</code>        to <code>javadoc.link.javamail</code></li>
+							<li><code>java.bootclasspath</code>            to <code>javase.bootclasspath</code></li>
+							<li><code>javase.bootclasspath*</code>         to <code>javase.bootclasspath.*</code></li>
+							<li><code>documented.javaVersion</code>        to <code>documented.javase.version</code></li>
+							<li><code>documented.javac.link.javaApi</code> to <code>documented.javadoc.link.javase</code></li>
+						</ol>
+					</li>
+					<li>Renamed profile <code>bootclasspaths</code> to <code>javase.bootclasspath</code>.</li>
+					<li>Added build properties for Java EE:
+						<ol>
+							<li><code>javaee.version</code>,default <code>6</code></li>
+							<li><code>javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
+							<li><code>documented.javaee.version</code>, default <code>6</code></li>
+							<li><code>documented.javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
+						</ol>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
