@@ -23,7 +23,7 @@ Parent POM for all [SemanticCMS](https://github.com/aoindustries/semanticcms) pa
 ## Project Links
 * [Project Home](https://semanticcms.com/parent/)
 * [Changelog](https://semanticcms.com/parent/changelog)
-* [Maven Central Repository](https://search.maven.org/#search%7Cgav%7C1%7Cg:%22com.semanticcms%22%20AND%20a:%22semanticcms-parent%22)
+* [Maven Central Repository](https://search.maven.org/artifact/com.semanticcms/semanticcms-parent)
 * [GitHub](https://github.com/aoindustries/semanticcms-parent)
 
 ## Contact Us
