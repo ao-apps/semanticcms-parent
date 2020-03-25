@@ -25,7 +25,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.6.1-SNAPSHOT</version>
+		<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.6.1<!-- -POST-SNAPSHOT --></version>
 	</parent>
 
 	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.6.1-SNAPSHOT</version>
@@ -57,7 +57,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<dependencies>
 			<!-- Java EE -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>javaee-web-api-bom</artifactId><version>6.0.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>javaee-web-api-bom</artifactId><version>6.0.1<!-- ${POST-SNAPSHOT} --></version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -98,7 +98,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		</dependency>
 		<!-- Dependency for dependencyversion-maven-plugin only -->
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.6.1-SNAPSHOT</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.6.1<!-- -POST-SNAPSHOT --></version>
 			<type>pom</type>
 			<scope>provided</scope>
 			<optional>true</optional>
