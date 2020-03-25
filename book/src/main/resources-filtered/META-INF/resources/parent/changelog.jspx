@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-03-23T22:15:29-05:00"
+		dateModified="2020-03-24T20:55:00-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -54,6 +54,19 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				scmUrl="@{project.scm.url}"
 			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.6.1"
+			datePublished="2020-03-24T20:55:00-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Updated links to <ao:a href="https://search.maven.org/" /></li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
