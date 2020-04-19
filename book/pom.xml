@@ -38,7 +38,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<documented.shortTitle>Parent</documented.shortTitle>
 		<documented.description>Parent POM for all SemanticCMS packages.</documented.description>
 
-		<description.html><![CDATA[Documentation for <a target="_top" href="${project.url}">${documented.name}</a> in <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
+		<description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
 	</properties>
 
 	<name>SemanticCMS Parent² Book</name>
