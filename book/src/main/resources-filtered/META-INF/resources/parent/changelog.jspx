@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-04-19T13:39:33-05:00"
+		dateModified="2020-04-21T02:06:05-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -65,6 +65,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							can escape the frames.
 						</p>
 					</li>
+					<li>Updated plugin versions.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
