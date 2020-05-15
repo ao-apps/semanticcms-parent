@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-04-21T02:45:50-05:00"
+		dateModified="2020-05-15T00:14:44-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -52,7 +52,25 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			/>
+			>
+				<ul>
+					<li>
+						Enabled <ao:a href="axis2-aar-maven-plugin">axis2-aar-maven-plugin</ao:a> by default
+						for building web services.
+						<ol>
+							<li>Enabled as extension so projects may use <![CDATA[&lt;packaging&gt;aar&lt;/packaging&gt;]]>.</li>
+							<li>Configured manifest entries consistent with other plugins.</li>
+						</ol>
+					</li>
+					<li>
+						Changed <code>Built-By</code> manifest entries from defaulting to blank
+						to now defaulting to <code>$\{project.organization.name}</code>.
+					</li>
+					<!-- TODO:
+					<li>Updated plugin versions.</li>
+					-->
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
