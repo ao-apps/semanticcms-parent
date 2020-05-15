@@ -64,7 +64,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					</li>
 					<li>
 						Changed <code>Built-By</code> manifest entries from defaulting to blank
-						to now defaulting to <code>$\{project.organization.name}</code>.
+						to now defaulting to <code>\${project.organization.name}</code>.
 					</li>
 					<li>
 						Enabled <code><![CDATA[&lt;filteringDeploymentDescriptors&gt;true&lt;/filteringDeploymentDescriptors&gt;]]></code>
