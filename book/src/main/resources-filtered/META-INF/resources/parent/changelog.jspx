@@ -58,7 +58,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						Enabled <ao:a href="https://axis.apache.org/axis2/java/core/tools/maven-plugins/axis2-aar-maven-plugin/howto.html">axis2-aar-maven-plugin</ao:a> by default
 						for building web services.
 						<ol>
-							<li>Enabled as extension so projects may use <![CDATA[&lt;packaging&gt;aar&lt;/packaging&gt;]]>.</li>
+							<li>Enabled as extension so projects may use <code><![CDATA[&lt;packaging&gt;aar&lt;/packaging&gt;]]></code>.</li>
 							<li>Configured manifest entries consistent with other plugins.</li>
 						</ol>
 					</li>
