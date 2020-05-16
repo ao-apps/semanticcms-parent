@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-05-15T20:23:21-05:00"
+		dateModified="2020-05-16T15:38:10-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -65,14 +65,51 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						to now defaulting to <code>\${project.organization.name}</code>.
 					</li>
 					<li>
-						Enabled <code><![CDATA[&lt;filteringDeploymentDescriptors&gt;true&lt;/filteringDeploymentDescriptors&gt;]]></code>
-						on <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a>.  This allows the
-						classes to by used as a dependency.  This is particularly useful for our multi-project translation tools.
+						Enabled <code><![CDATA[&lt;attachClasses&gt;true&lt;/attachClasses&gt;]]></code>
+						on <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> when
+						<code>src/main/java</code> exists.  This allows the classes to by used as a dependency.
+						This is particularly useful for our multi-project translation tools.
 					</li>
 					<li>
 						Set <code><![CDATA[&lt;trimStackTrace&gt;false&lt;/trimStackTrace&gt;]]></code>
 						on <ao:a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</ao:a>.
 						The full stack traces of exceptions during testing should help in debugging.
+					</li>
+					<li>
+						Defined default build resources of both <code>src/main/resources</code> and <code>src/main/resources-filtered</code> (filtered).
+						Previously, we had obtained this behavior through configuring plugins directly, but missed the more proper
+						approach of defining in project/build/resources.  This cleans-up the implementation, and allows other
+						parts of the configuration to work correctly when projects define different or additional resources.
+					</li>
+					<li>
+						Defined default test resources of both <code>src/test/resources</code> and <code>src/test/resources-filtered</code> (filtered).
+						This is for consistency with the definition of compilation resources.
+					</li>
+					<li>
+						Added both <ao:a href="https://maven.apache.org/plugins/maven-jar-plugin/test-jar-mojo.html">tests</ao:a>
+						and <ao:a href="https://maven.apache.org/plugins/maven-source-plugin/test-jar-no-fork-mojo.html">test-sources</ao:a>
+						artifacts, unless empty.
+					</li>
+					<li>
+						Configured <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> to support filtered
+						<code>META-INF/context.xml</code>, which is used to provided development values to web applications:
+						<ol>
+							<li>
+								Added filtered web resources <code>src/main/webapp-filtered</code>, which is expected
+								to include a <code>META-INF/context.xml</code>.  This means that projects
+								<strong>must have a <code>src/main/webapp-filtered</code> directory</strong>,
+								even if just an empty directory.
+							</li>
+							<li>
+								Excluded <code>src/main/webapp/META-INF/context.xml</code> so that the filtered
+								version may be used.  This file still must be present, however, as NetBeans uses
+								this file to determine how to deploy to local development Tomcat.
+							</li>
+							<li>
+								<code>META-INF/context.xml</code> is not included in the WAR file.  The expectation is production
+								values will be provided by the container.
+							</li>
+						</ol>
 					</li>
 					<!-- TODO:
 					<li>Updated plugin versions.</li>
