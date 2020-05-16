@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-05-15T14:25:06-05:00"
+		dateModified="2020-05-15T20:23:21-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -68,6 +68,11 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						Enabled <code><![CDATA[&lt;filteringDeploymentDescriptors&gt;true&lt;/filteringDeploymentDescriptors&gt;]]></code>
 						on <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a>.  This allows the
 						classes to by used as a dependency.  This is particularly useful for our multi-project translation tools.
+					</li>
+					<li>
+						Set <code><![CDATA[&lt;trimStackTrace&gt;false&lt;/trimStackTrace&gt;]]></code>
+						on <ao:a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</ao:a>.
+						The full stack traces of exceptions during testing should help in debugging.
 					</li>
 					<!-- TODO:
 					<li>Updated plugin versions.</li>
