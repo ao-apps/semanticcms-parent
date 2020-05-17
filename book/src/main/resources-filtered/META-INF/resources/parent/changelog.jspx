@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-05-16T15:38:10-05:00"
+		dateModified="2020-05-16T19:09:53-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -86,13 +86,14 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						This is for consistency with the definition of compilation resources.
 					</li>
 					<li>
-						Added both <ao:a href="https://maven.apache.org/plugins/maven-jar-plugin/test-jar-mojo.html">tests</ao:a>
+						Added <ao:a href="https://maven.apache.org/plugins/maven-jar-plugin/test-jar-mojo.html">tests</ao:a>,
+						<ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/test-jar-mojo.html">test-javadoc</ao:a>,
 						and <ao:a href="https://maven.apache.org/plugins/maven-source-plugin/test-jar-no-fork-mojo.html">test-sources</ao:a>
 						artifacts, unless empty.
 					</li>
 					<li>
 						Configured <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> to support filtered
-						<code>META-INF/context.xml</code>, which is used to provided development values to web applications:
+						<code>META-INF/context.xml</code>, which is used to provide development values to web applications:
 						<ol>
 							<li>
 								Added filtered web resources <code>src/main/webapp-filtered</code>, which is expected
