@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-05-28T02:23:01-05:00"
+		dateModified="2020-05-30T11:43:47-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -55,6 +55,26 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 			>
 				<ul>
 					<li>Corrected the default value for the Maven build property <code>documented.javadoc.link.javaee</code>.</li>
+					<li>
+						<p>
+							Set <code><![CDATA[&lt;detectOfflineLinks&gt;false&lt;/detectOfflineLinks&gt;]]></code>
+							on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+						</p>
+						<p>
+							Projects are built and released on an individual basis, and thus we manually link
+							between projects to not rely on reactor / aggregator builds to get achieve proper linking.
+						</p>
+						<p>
+							Furthermore, we maximize the use of offline links from javadoc artifacts.
+							This has several benefits:
+						</p>
+						<ol>
+							<li>Repeatable builds: linking is done against the specified version versus whatever is published online</li>
+							<li>More reliable build: does not depend on external apidocs server to be online</li>
+							<li>Higher build performance: uses locally cached artifacts instead of http/https requests on each build</li>
+							<li>Offline builds: when all artifacts are already locally available</li>
+						</ol>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
