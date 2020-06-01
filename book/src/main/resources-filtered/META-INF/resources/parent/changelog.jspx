@@ -75,7 +75,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							<li>Offline builds: when all artifacts are already locally available</li>
 							<li>Private builds: linking to apidocs from private projects not publicly available</li>
 							<li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
-							<li>New version linking: links are properly created before publishing new versions</li>
+							<li>New version linking: links are properly created before releasing new versions</li>
 						</ol>
 					</li>
 				</ul>
