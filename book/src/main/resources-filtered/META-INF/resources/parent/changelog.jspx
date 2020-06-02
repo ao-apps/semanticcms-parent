@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-05-30T11:43:47-05:00"
+		dateModified="2020-06-01T18:40:48-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -77,6 +77,12 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							<li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
 							<li>New version linking: links are properly created before releasing new versions</li>
 						</ol>
+					</li>
+					<li>
+						No longer declaring default <code><![CDATA[&lt;links /&gt;]]></code> for
+						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+						The expectation is for projects to use <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
+						by unpacking the new <ao:a href="https://aoindustries.com/ao-javadoc-offline/">AO Javadoc Offline</ao:a> project.
 					</li>
 				</ul>
 			</changelog:release>
