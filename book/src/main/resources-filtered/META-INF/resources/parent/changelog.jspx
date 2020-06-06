@@ -80,7 +80,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						<p>
 							Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
 							on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
-							advantage of the new <core:link book="/ao-javadoc-offline" page="/index.jspx" /> project.
+							advantage of the new <ao:a href="https://aoindustries.com/ao-javadoc-offline/">AO Javadoc Offline</ao:a> project.
 							Furthermore, the offline links also include JavaMail and Java EE.
 						</p>
 						<p>
