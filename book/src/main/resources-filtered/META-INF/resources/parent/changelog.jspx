@@ -100,7 +100,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					<li>Now supporting generated resources on all projects.</li>
 					<li>
 						<p>
-							Enabled the <ao:a href="http://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
+							Enabled the <ao:a href="https://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
 							on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
 						</p>
 						<p>
@@ -273,8 +273,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					</ol>
 				</li>
 				<li>
-					Added <ao:a href="http://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#source"><![CDATA[&lt;source&gt;]]></ao:a>
-					configuration to <ao:a href="http://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html">maven-javadoc-plugin</ao:a> to build correctly in Java 11.
+					Added <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#source"><![CDATA[&lt;source&gt;]]></ao:a>
+					configuration to <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html">maven-javadoc-plugin</ao:a> to build correctly in Java 11.
 				</li>
 				<li>Simplified use of <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html">maven-gpg-plugin</ao:a>:
 					<ul>
