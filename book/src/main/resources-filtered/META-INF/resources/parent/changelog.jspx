@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-06-08T20:51:39-05:00"
+		dateModified="2020-06-09T02:31:36-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -98,6 +98,18 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					</li>
 					<li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
 					<li>Now supporting generated resources on all projects.</li>
+					<li>
+						<p>
+							Enabled the <ao:a href="http://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
+							on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
+						</p>
+						<p>
+							Projects that have access to their parent either directly or over HTTP/HTTPS may remove
+							<code>wagon-ssh-external</code> from their <code>.mvn/extensions.xml</code>.  However,
+							if the parent is accessed through <code>scpexe://…</code>, the declaration in <code>extensions.xml</code>
+							is still required.
+						</p>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
