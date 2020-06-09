@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-06-03T00:04:31-05:00"
+		dateModified="2020-06-08T20:51:39-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -96,6 +96,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							requring the <code>release</code> profile.
 						</p>
 					</li>
+					<li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
+					<li>Now supporting generated resources on all projects.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
