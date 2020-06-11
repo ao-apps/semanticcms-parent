@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-06-09T02:31:36-05:00"
+		dateModified="2020-06-11T02:41:56-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -52,67 +52,76 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Corrected the default value for the Maven build property <code>documented.javadoc.link.javaee</code>.</li>
-					<li>
-						<p>
-							Set <code><![CDATA[&lt;detectOfflineLinks&gt;false&lt;/detectOfflineLinks&gt;]]></code>
-							on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
-						</p>
-						<p>
-							Projects are built and released on an individual basis, and thus we manually link
-							between projects to not rely on reactor / aggregator builds to get achieve proper linking.
-						</p>
-						<p>
-							Furthermore, we maximize the use of offline links from javadoc artifacts.
-							This has several benefits:
-						</p>
-						<ol>
-							<li>Repeatable builds: linking is done against the specified version versus whatever is published online</li>
-							<li>More reliable build: does not depend on external apidocs server to be online</li>
-							<li>Higher build performance: uses locally cached artifacts instead of http/https requests on each build</li>
-							<li>Offline builds: when all artifacts are already locally available</li>
-							<li>Private builds: linking to apidocs from private projects not publicly available</li>
-							<li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
-							<li>New version linking: links are properly created before releasing new versions</li>
-						</ol>
-						<p>
-							Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
-							on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
-							advantage of the new <ao:a href="https://aoindustries.com/ao-javadoc-offline/">AO Javadoc Offline</ao:a> project.
-							Furthermore, the offline links also include JavaMail and Java EE.
-						</p>
-						<p>
-							Offline links are enabled by the new <code>offlineLinks</code> profile, which is activated
-							by the presence of <code>src/main/java</code>.  If desired, this profile may be deactivated
-							during a build with <code>mvn -P'!offlineLinks' …</code>.
-						</p>
-					</li>
-					<li>
-						Moved configuration into <code><![CDATA[&lt;pluginManagement /&gt;]]></code> where appropriate.
-						<p>
-							One notable consequence is that Javadocs are now fully formatted without
-							requring the <code>release</code> profile.
-						</p>
-					</li>
-					<li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
-					<li>Now supporting generated resources on all projects.</li>
-					<li>
-						<p>
-							Enabled the <ao:a href="https://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
-							on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
-						</p>
-						<p>
-							Projects that have access to their parent either directly or over HTTP/HTTPS may remove
-							<code>wagon-ssh-external</code> from their <code>.mvn/extensions.xml</code>.  However,
-							if the parent is accessed through <code>scpexe://…</code>, the declaration in <code>extensions.xml</code>
-							is still required.
-						</p>
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.9.0"
+			datePublished="2020-06-11T02:41:56-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Corrected the default value for the Maven build property <code>documented.javadoc.link.javaee</code>.</li>
+				<li>
+					<p>
+						Set <code><![CDATA[&lt;detectOfflineLinks&gt;false&lt;/detectOfflineLinks&gt;]]></code>
+						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+					</p>
+					<p>
+						Projects are built and released on an individual basis, and thus we manually link
+						between projects to not rely on reactor / aggregator builds to get achieve proper linking.
+					</p>
+					<p>
+						Furthermore, we maximize the use of offline links from javadoc artifacts.
+						This has several benefits:
+					</p>
+					<ol>
+						<li>Repeatable builds: linking is done against the specified version versus whatever is published online</li>
+						<li>More reliable build: does not depend on external apidocs server to be online</li>
+						<li>Higher build performance: uses locally cached artifacts instead of http/https requests on each build</li>
+						<li>Offline builds: when all artifacts are already locally available</li>
+						<li>Private builds: linking to apidocs from private projects not publicly available</li>
+						<li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
+						<li>New version linking: links are properly created before releasing new versions</li>
+					</ol>
+					<p>
+						Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
+						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
+						advantage of the new <ao:a href="https://aoindustries.com/ao-javadoc-offline/">AO Javadoc Offline</ao:a> project.
+						Furthermore, the offline links also include JavaMail and Java EE.
+					</p>
+					<p>
+						Offline links are enabled by the new <code>offlineLinks</code> profile, which is activated
+						by the presence of <code>src/main/java</code>.  If desired, this profile may be deactivated
+						during a build with <code>mvn -P'!offlineLinks' …</code>.
+					</p>
+				</li>
+				<li>
+					Moved configuration into <code><![CDATA[&lt;pluginManagement /&gt;]]></code> where appropriate.
+					<p>
+						One notable consequence is that Javadocs are now fully formatted without
+						requring the <code>release</code> profile.
+					</p>
+				</li>
+				<li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
+				<li>Now supporting generated resources on all projects.</li>
+				<li>
+					<p>
+						Enabled the <ao:a href="https://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
+						on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
+					</p>
+					<p>
+						Projects that have access to their parent either directly or over HTTP/HTTPS may remove
+						<code>wagon-ssh-external</code> from their <code>.mvn/extensions.xml</code>.  However,
+						if the parent is accessed through <code>scpexe://…</code>, the declaration in <code>extensions.xml</code>
+						is still required.
+					</p>
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
