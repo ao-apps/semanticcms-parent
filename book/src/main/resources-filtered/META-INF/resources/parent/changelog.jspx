@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-06-26T01:20:36-05:00"
+		dateModified="2020-06-30T19:51:29-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -56,6 +56,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				<ul>
 					<li>Added default NetBeans editor settings.</li>
 					<li>Added default NetBeans line ending settings.</li>
+					<li>Added plugin repositories to match repositories.</li>
+					<li>Updated plugin versions.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
