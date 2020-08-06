@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-06-30T19:51:29-05:00"
+		dateModified="2020-08-13T17:04:13-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -57,6 +57,15 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					<li>Added default NetBeans editor settings.</li>
 					<li>Added default NetBeans line ending settings.</li>
 					<li>Added plugin repositories to match repositories.</li>
+					<li>
+						Now <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html">analyzing dependencies</ao:a>
+						during release builds.
+					</li>
+					<li>
+						Now automatically configures <ao:a href="https://www.mojohaus.org/versions-maven-plugin/display-dependency-updates-mojo.html#rulesUri">rulesUri</ao:a>
+						for <ao:a href="https://www.mojohaus.org/versions-maven-plugin/">versions-maven-plugin</ao:a>
+						when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
+					</li>
 					<li>Updated plugin versions.</li>
 				</ul>
 			</changelog:release>
