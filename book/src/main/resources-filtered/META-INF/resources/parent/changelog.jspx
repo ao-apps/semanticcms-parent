@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-09-01T19:46:25-05:00"
+		dateModified="2020-11-16T23:45:23-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -69,6 +69,13 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
 					</li>
 					<li>Updated plugin versions.</li>
+					<li>Java updates:
+						<ol>
+							<li>Java 14 is now end-of-life</li>
+							<li>Java 15 is now current stable</li>
+							<li>Java 16 is new beta</li>
+						</ol>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
