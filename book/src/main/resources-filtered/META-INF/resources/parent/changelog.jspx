@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-11-17T02:03:12-06:00"
+		dateModified="2020-11-25T02:30:48-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -52,33 +52,42 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Added default NetBeans formatting settings.</li>
-					<li>Added default NetBeans server settings.</li>
-					<li>Added default NetBeans hint settings.</li>
-					<li>Added default NetBeans line ending settings.</li>
-					<li>Added plugin repositories to match repositories.</li>
-					<li>
-						Now <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html">analyzing dependencies</ao:a>
-						during release builds.
-					</li>
-					<li>
-						Now automatically configures <ao:a href="https://www.mojohaus.org/versions-maven-plugin/display-dependency-updates-mojo.html#rulesUri">rulesUri</ao:a>
-						for <ao:a href="https://www.mojohaus.org/versions-maven-plugin/">versions-maven-plugin</ao:a>
-						when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
-					</li>
-					<li>Java updates:
-						<ol>
-							<li>Java 14 is now end-of-life</li>
-							<li>Java 15 is now current stable</li>
-							<li>Java 16 is new beta</li>
-						</ol>
-					</li>
-					<li>Updated plugin versions.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.10.0"
+			datePublished="2020-11-25T02:30:48-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Added default NetBeans formatting settings.</li>
+				<li>Added default NetBeans server settings.</li>
+				<li>Added default NetBeans hint settings.</li>
+				<li>Added default NetBeans line ending settings.</li>
+				<li>Added plugin repositories to match repositories.</li>
+				<li>
+					Now <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html">analyzing dependencies</ao:a>
+					during release builds.
+				</li>
+				<li>
+					Now automatically configures <ao:a href="https://www.mojohaus.org/versions-maven-plugin/display-dependency-updates-mojo.html#rulesUri">rulesUri</ao:a>
+					for <ao:a href="https://www.mojohaus.org/versions-maven-plugin/">versions-maven-plugin</ao:a>
+					when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
+				</li>
+				<li>Java updates:
+					<ol>
+						<li>Java 14 is now end-of-life</li>
+						<li>Java 15 is now current stable</li>
+						<li>Java 16 is new beta</li>
+					</ol>
+				</li>
+				<li>Updated plugin versions.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
