@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-11-25T02:30:48-06:00"
+		dateModified="2020-11-27T22:36:15-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-parent:pom.version}" />
@@ -106,7 +106,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					</p>
 					<p>
 						Projects are built and released on an individual basis, and thus we manually link
-						between projects to not rely on reactor / aggregator builds to get achieve proper linking.
+						between projects to not rely on reactor / aggregator builds to achieve proper linking.
 					</p>
 					<p>
 						Furthermore, we maximize the use of offline links from javadoc artifacts.
@@ -242,7 +242,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						API docs with <code>target="_self"</code> for <![CDATA[JDK &gt;= 9]]>.
 					</p>
 					<p>
-						We still supporting building with older JDK versions,
+						We still support building with older JDK versions,
 						in which <code>target="_top"</code> is used so that links
 						can escape the frames.
 					</p>
