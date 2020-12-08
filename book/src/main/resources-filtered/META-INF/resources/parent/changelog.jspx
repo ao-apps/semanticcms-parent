@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-12-07T21:06:46-06:00"
+		dateModified="2020-12-08T14:41:16-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -61,7 +61,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				<li>
 					<p>
 						Switched back to generating Javadocs links with <code>target="_top"</code> on all versions of
-						Java.  Eventhough the API Docs are generate without frames as of Java 9, they may still be used
+						Java.  Eventhough the API Docs are generated without frames as of Java 9, they may still be used
 						within frames in other contexts, such as when viewed at <ao:a href="https://javadoc.io/" />.
 					</p>
 					<p>
