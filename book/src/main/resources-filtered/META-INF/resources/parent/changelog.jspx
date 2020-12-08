@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-12-06T10:16:19-06:00"
+		dateModified="2020-12-07T21:06:46-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -46,28 +46,37 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>
-						<p>
-							Switched back to generating Javadocs links with <code>target="_top"</code> on all versions of
-							Java.  Eventhough the API Docs are generate without frames as of Java 9, they may still be used
-							within frames in other contexts, such as when viewed at <ao:a href="https://javadoc.io/" />.
-						</p>
-						<p>
-							Furthermore, browsers are increasingly blocking or issuing warnings when a link tries to go
-							to a different site within a frame.  This change ensures links always escape frames.
-						</p>
-					</li>
-					<li>
-						New build properties <code>\${build.isSnapshot}</code> and <code>\${build.notSnapshot}</code>
-						that are set to <code>true</code> or <code>false</code>, depending in whether the
-						<code>\${project.version}</code> is, or is not respectively, <code>*-SNAPSHOT</code>.
-					</li>
-					<li>Updated plugin versions.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.11.0"
+			datePublished="2020-12-07T21:06:46-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>
+					<p>
+						Switched back to generating Javadocs links with <code>target="_top"</code> on all versions of
+						Java.  Eventhough the API Docs are generate without frames as of Java 9, they may still be used
+						within frames in other contexts, such as when viewed at <ao:a href="https://javadoc.io/" />.
+					</p>
+					<p>
+						Furthermore, browsers are increasingly blocking or issuing warnings when a link tries to go
+						to a different site within a frame.  This change ensures links always escape frames.
+					</p>
+				</li>
+				<li>
+					New build properties <code>\${build.isSnapshot}</code> and <code>\${build.notSnapshot}</code>
+					that are set to <code>true</code> or <code>false</code>, depending in whether the
+					<code>\${project.version}</code> is, or is not respectively, <code>*-SNAPSHOT</code>.
+				</li>
+				<li>Updated plugin versions.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
