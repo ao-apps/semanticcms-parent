@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-parent - Parent POM for all SemanticCMS packages.
-Copyright (C) 2016, 2017, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2020-12-15T22:39:10-06:00"
+		dateModified="2021-03-02T23:34:29-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -53,6 +53,10 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						Removed offline Javadocs for <code>com.servlets:cos</code>, since we have eradicated it from all projects in favor of
 						<ao:a rel="nofollow" href="@{javadoc.link.javaee}javax/servlet/http/HttpServletRequest.html#getParts()">the standard file upload API</ao:a>
 						and <ao:a href="https://javaee.github.io/javamail/">JavaMail</ao:a>.
+					</li>
+					<li>
+						Added <ao:a href="https://stackoverflow.com/a/57284322">workaround for "undefined" in URL during Javadoc search</ao:a>
+						when project has no modules.
 					</li>
 				</ul>
 			</changelog:release>
