@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2021-03-02T23:34:29-06:00"
+		dateModified="2021-03-18T04:32:42-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -46,21 +46,30 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Updated plugin versions.</li>
-					<li>
-						Removed offline Javadocs for <code>com.servlets:cos</code>, since we have eradicated it from all projects in favor of
-						<ao:a rel="nofollow" href="@{javadoc.link.javaee}javax/servlet/http/HttpServletRequest.html#getParts()">the standard file upload API</ao:a>
-						and <ao:a href="https://javaee.github.io/javamail/">JavaMail</ao:a>.
-					</li>
-					<li>
-						Added <ao:a href="https://stackoverflow.com/a/57284322">workaround for "undefined" in URL during Javadoc search</ao:a>
-						when project has no modules.
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.11.1"
+			datePublished="2021-03-18T04:32:42-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Updated plugin versions.</li>
+				<li>
+					Removed offline Javadocs for <code>com.servlets:cos</code>, since we have eradicated it from all projects in favor of
+					<ao:a rel="nofollow" href="@{javadoc.link.javaee}javax/servlet/http/HttpServletRequest.html#getParts()">the standard file upload API</ao:a>
+					and <ao:a href="https://javaee.github.io/javamail/">JavaMail</ao:a>.
+				</li>
+				<li>
+					Added <ao:a href="https://stackoverflow.com/a/57284322">workaround for "undefined" in URL during Javadoc search</ao:a>
+					when project has no modules.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
