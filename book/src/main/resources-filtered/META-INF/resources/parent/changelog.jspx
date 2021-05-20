@@ -36,8 +36,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		title="@{documented.name} Changelog"
 		shortTitle="Changelog"
 		tocLevels="1"
-		datePublished="2016-11-13T18:03:31-0600"
-		dateModified="2021-03-20T11:11:01-05:00"
+		datePublished="2016-11-13T18:03:31-06:00"
+		dateModified="2021-05-20T14:36:30-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -46,7 +46,19 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			/>
+			>
+				<ul>
+					<li>
+						Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a>
+						on builds.  The behavior is affected by the active profiles:
+						<ul>
+							<li><code>development</code> - <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#skip">Skip audit</ao:a></li>
+							<li><code>release</code> - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">fail the build</ao:a> when vulnerable components are found</li>
+							<li>(default) - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">warn-only</ao:a> (do not fail the build) for reproducible builds</li>
+						</ul>
+					</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
