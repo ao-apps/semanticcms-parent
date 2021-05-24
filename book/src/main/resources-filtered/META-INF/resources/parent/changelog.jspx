@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-05-20T14:36:30-05:00"
+		dateModified="2021-05-22T13:07:02-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -56,6 +56,17 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							<li><code>release</code> - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">fail the build</ao:a> when vulnerable components are found</li>
 							<li>(default) - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">warn-only</ao:a> (do not fail the build) for reproducible builds</li>
 						</ul>
+					</li>
+					<li>Java™ EE updates:
+						<ol>
+							<li>
+								Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
+								to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
+							</li>
+							<li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
+							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
+							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
+						</ol>
 					</li>
 				</ul>
 			</changelog:release>
@@ -423,7 +434,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.5.0"
-			datePublished="2019-10-14T03:24:30-0500"
+			datePublished="2019-10-14T03:24:30-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -439,7 +450,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.4.0"
-			datePublished="2019-10-04T20:02:31-0500"
+			datePublished="2019-10-04T20:02:31-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -469,7 +480,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.1"
-			datePublished="2019-06-29T18:38:31-0500"
+			datePublished="2019-06-29T18:38:31-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -485,7 +496,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.0"
-			datePublished="2019-06-23T11:41:15-0500"
+			datePublished="2019-06-23T11:41:15-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -547,7 +558,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.2.0"
-			datePublished="2019-06-19T08:29:25-0500"
+			datePublished="2019-06-19T08:29:25-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -568,7 +579,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.1.0"
-			datePublished="2019-04-18T01:44:32-0500"
+			datePublished="2019-04-18T01:44:32-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -585,7 +596,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.0.1"
-			datePublished="2017-07-19T16:48:41-0500"
+			datePublished="2017-07-19T16:48:41-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -599,7 +610,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.0.0"
-			datePublished="2016-11-15T16:57:58-0600"
+			datePublished="2016-11-15T16:57:58-06:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
