@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-05-22T13:07:02-05:00"
+		dateModified="2021-05-26T06:36:49-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -67,6 +67,13 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
 							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
 						</ol>
+					</li>
+					<li>Changed default Java version from 1.8 to 11</li>
+					<li>
+						Enabled <ao:a href="https://www.mojohaus.org/extra-enforcer-rules/enforceBytecodeVersion.html">dependency bytecode version checks</ao:a>
+						on builds.  This will ensure a project does not inadvertently depend on a library of a newer Java
+						version than the project itself.  The check is skipped when the <code>development</code> profile
+						is active.
 					</li>
 				</ul>
 			</changelog:release>
