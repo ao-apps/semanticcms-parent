@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-05-26T06:36:49-05:00"
+		dateModified="2021-05-27T23:58:30-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -75,6 +75,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						version than the project itself.  The check is skipped when the <code>development</code> profile
 						is active.
 					</li>
+					<li>Updated plugin versions.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
