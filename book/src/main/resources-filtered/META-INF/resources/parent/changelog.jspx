@@ -22,7 +22,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 -->
 <jsp:root
-	xmlns:ao="https://aoindustries.com/ao-taglib/"
+	xmlns:ao="https://oss.aoapps.com/taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
 	xmlns:core="https://semanticcms.com/core/taglib/"
@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-05-27T23:58:30-05:00"
+		dateModified="2021-05-31T08:58:51-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -45,6 +45,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				version="@{project.version}"
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
+				repository="https://oss.sonatype.org/content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
@@ -219,7 +220,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					<p>
 						Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
 						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
-						advantage of the new <ao:a href="https://aoindustries.com/ao-javadoc-offline/">AO Javadoc Offline</ao:a> project.
+						advantage of the new <ao:a href="https://oss.aoapps.com/javadoc-offline/">AO Javadoc Offline</ao:a> project.
 						Furthermore, the offline links also include JavaMail and Java EE.
 					</p>
 					<p>
@@ -449,7 +450,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		>
 			<ul>
 				<li>
-					To significantly reduce the size of Javadocs, using new <ao:a href="https://aoindustries.com/ao-javadoc-resources/">AO Javadoc Resources</ao:a>
+					To significantly reduce the size of Javadocs, using new <ao:a href="https://oss.aoapps.com/javadoc-resources/">AO Javadoc Resources</ao:a>
 					project instead of <code>data:</code> URLs.
 				</li>
 			</ul>
@@ -510,7 +511,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 			scmUrl="@{project.scm.url}"
 		>
 			<ul>
-				<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
+				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
 				<li>New profile "POST-SNAPSHOT" that enables the use of
 					post-release builds as dependencies.
 					<p>
@@ -572,14 +573,14 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 			scmUrl="@{project.scm.url}"
 		>
 			<ul>
-				<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
+				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
 				<li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
 				<li>
 					No longer excluding
 					<ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
 					from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
 					Instead, projects are encouraged to use the new
-					<ao:a href="https://aoindustries.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+					<ao:a href="https://oss.aoapps.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
 				</li>
 			</ul>
 		</changelog:release>
@@ -597,7 +598,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 					Excludes of versions-maven-plugin are not inherited.
 					Added excludes for Java EE Web API 6 where needed.
 				</li>
-				<li>Updated version of <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a>.</li>
+				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
 			</ul>
 		</changelog:release>
 
