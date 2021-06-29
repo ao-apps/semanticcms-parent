@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-05-31T08:58:51-05:00"
+		dateModified="2021-06-29T05:56:41-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -49,15 +49,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
-					<li>
-						Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a>
-						on builds.  The behavior is affected by the active profiles:
-						<ul>
-							<li><code>development</code> - <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#skip">Skip audit</ao:a></li>
-							<li><code>release</code> - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">fail the build</ao:a> when vulnerable components are found</li>
-							<li>(default) - Perform audit, <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/ossindex-audit/#fail">warn-only</ao:a> (do not fail the build) for reproducible builds</li>
-						</ul>
-					</li>
+					<li>Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a> on builds.</li>
 					<li>Java™ EE updates:
 						<ol>
 							<li>
@@ -77,6 +69,38 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 						is active.
 					</li>
 					<li>Updated plugin versions.</li>
+					<li><code>Bundle-SymbolicName</code> is now defined to be the same as Java 9+ module names.</li>
+					<li>
+						The "release" profile is now only to be used for production non-SNAPSHOT releases.  SNAPSHOT
+						builds should only use the "POST-SNAPSHOT" profile.  Local development builds should now use the
+						"development" profile, and may optionally use the "POST-SNAPSHOT" profile.
+					</li>
+					<li>
+						Reverted <code>maven-dependency-plugin</code> from version 3.2.0 to 3.1.2 until
+						<ao:a href="https://issues.apache.org/jira/browse/MDEP-753">Issue 753</ao:a> is resolved.
+					</li>
+					<li>
+						Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
+						failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
+						Please see:
+						<ol>
+							<li><ao:a href="https://stackoverflow.com/a/66371984">maven javadoc plugin error when used with modules Exit code: 1 - error: module not found:</ao:a></li>
+							<li><ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-673">Issue 673</ao:a></li>
+						</ol>
+					</li>
+					<li>
+						<p>
+							Several profiles may now be conveniently activated by the presence of files in an optional
+							<code>profile.d</code> directory.  This technique is primarily a workaround for profiles not
+							being able to be activated by properties of sub-projects, and has the added benefit that the
+							set of profiles across all projects is easily manipulated through Bash scripts.
+						</p>
+						<p>
+							This includes <code>maven.javadoc.skip</code>, <code>maven.install.skip</code>,
+							<code>maven.deploy.skip</code>, and <code>skipNexusStagingDeployMojo</code>, which all have
+							the expected skipping behavior matching the property of the same name.
+						</p>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
