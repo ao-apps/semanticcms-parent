@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-07-06T03:40:05-05:00"
+		dateModified="2021-07-06T04:29:16-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,69 +47,78 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a> on builds.</li>
-					<li>Java™ EE updates:
-						<ol>
-							<li>
-								Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
-								to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
-							</li>
-							<li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
-							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
-							<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
-						</ol>
-					</li>
-					<li>Changed default Java version from 1.8 to 11</li>
-					<li>
-						Enabled <ao:a href="https://www.mojohaus.org/extra-enforcer-rules/enforceBytecodeVersion.html">dependency bytecode version checks</ao:a>
-						on builds.  This will ensure a project does not inadvertently depend on a library of a newer Java
-						version than the project itself.  The check is skipped when the <code>development</code> profile
-						is active.
-					</li>
-					<li>Updated plugin versions.</li>
-					<li><code>Bundle-SymbolicName</code> is now defined to be the same as Java 9+ module names.</li>
-					<li>
-						The "release" profile is now only to be used for production non-SNAPSHOT releases.  SNAPSHOT
-						builds should only use the "POST-SNAPSHOT" profile.  Local development builds should now use the
-						"development" profile, and may optionally use the "POST-SNAPSHOT" profile.
-					</li>
-					<li>
-						Reverted <code>maven-dependency-plugin</code> from version 3.2.0 to 3.1.2 until
-						<ao:a href="https://issues.apache.org/jira/browse/MDEP-753">Issue 753</ao:a> is resolved.
-					</li>
-					<li>
-						Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
-						failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
-						Please see:
-						<ol>
-							<li><ao:a href="https://stackoverflow.com/a/66371984">maven javadoc plugin error when used with modules Exit code: 1 - error: module not found:</ao:a></li>
-							<li><ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-673">Issue 673</ao:a></li>
-						</ol>
-					</li>
-					<li>
-						<p>
-							Several profiles may now be conveniently activated by the presence of files in an optional
-							<code>profile.d</code> directory.  This technique is primarily a workaround for profiles not
-							being able to be activated by properties of sub-projects, and has the added benefit that the
-							set of profiles across all projects is easily manipulated through Bash scripts.
-						</p>
-						<p>
-							This includes <code>maven.javadoc.skip</code>, <code>maven.install.skip</code>,
-							<code>maven.deploy.skip</code>, and <code>skipNexusStagingDeployMojo</code>, which all have
-							the expected skipping behavior matching the property of the same name.
-						</p>
-					</li>
-					<li>
-						Nexus Repository Manager URL is now defined in a <code>$nexusUrl</code> property.
-						The URL should end with a slash (/) and is used for both distributionManagement/snapshotRepository
-						and nexus-staging-maven-plugin/nexusUrl.  Defaults to <ao:a href="https://oss.sonatype.org/" />
-						since groupId <code>com.semanticcms</code> is on the original Sonatype Nexus Repository Manager.
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.12.0"
+			datePublished="2021-07-06T04:29:16-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a> on builds.</li>
+				<li>Java™ EE updates:
+					<ol>
+						<li>
+							Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
+							to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
+						</li>
+						<li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
+						<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
+						<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
+					</ol>
+				</li>
+				<li>Changed default Java version from 1.8 to 11</li>
+				<li>
+					Enabled <ao:a href="https://www.mojohaus.org/extra-enforcer-rules/enforceBytecodeVersion.html">dependency bytecode version checks</ao:a>
+					on builds.  This will ensure a project does not inadvertently depend on a library of a newer Java
+					version than the project itself.  The check is skipped when the <code>development</code> profile
+					is active.
+				</li>
+				<li>Updated plugin versions.</li>
+				<li><code>Bundle-SymbolicName</code> is now defined to be the same as Java 9+ module names.</li>
+				<li>
+					The "release" profile is now only to be used for production non-SNAPSHOT releases.  SNAPSHOT
+					builds should only use the "POST-SNAPSHOT" profile.  Local development builds should now use the
+					"development" profile, and may optionally use the "POST-SNAPSHOT" profile.
+				</li>
+				<li>
+					Reverted <code>maven-dependency-plugin</code> from version 3.2.0 to 3.1.2 until
+					<ao:a href="https://issues.apache.org/jira/browse/MDEP-753">Issue 753</ao:a> is resolved.
+				</li>
+				<li>
+					Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
+					failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
+					Please see:
+					<ol>
+						<li><ao:a href="https://stackoverflow.com/a/66371984">maven javadoc plugin error when used with modules Exit code: 1 - error: module not found:</ao:a></li>
+						<li><ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-673">Issue 673</ao:a></li>
+					</ol>
+				</li>
+				<li>
+					<p>
+						Several profiles may now be conveniently activated by the presence of files in an optional
+						<code>profile.d</code> directory.  This technique is primarily a workaround for profiles not
+						being able to be activated by properties of sub-projects, and has the added benefit that the
+						set of profiles across all projects is easily manipulated through Bash scripts.
+					</p>
+					<p>
+						This includes <code>maven.javadoc.skip</code>, <code>maven.install.skip</code>,
+						<code>maven.deploy.skip</code>, and <code>skipNexusStagingDeployMojo</code>, which all have
+						the expected skipping behavior matching the property of the same name.
+					</p>
+				</li>
+				<li>
+					Nexus Repository Manager URL is now defined in a <code>$nexusUrl</code> property.
+					The URL should end with a slash (/) and is used for both distributionManagement/snapshotRepository
+					and nexus-staging-maven-plugin/nexusUrl.  Defaults to <ao:a href="https://oss.sonatype.org/" />
+					since groupId <code>com.semanticcms</code> is on the original Sonatype Nexus Repository Manager.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
