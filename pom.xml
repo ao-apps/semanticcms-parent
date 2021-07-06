@@ -25,7 +25,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.16.0-POST-SNAPSHOT</version>
+		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.16.1-SNAPSHOT</version>
 		<relativePath>../../oss/parent/pom.xml</relativePath>
 	</parent>
 
@@ -34,6 +34,8 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 
 	<properties>
 		<google.analytics.trackingId>UA-86871646-2</google.analytics.trackingId>
+		<!-- com.semanticcms is on original Sonatype Nexus Repository Manager -->
+		<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 	</properties>
 
 	<name>SemanticCMS Parent</name>
@@ -75,19 +77,4 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<system>GitHub Issues</system>
 		<url>https://github.com/aoindustries/semanticcms-parent/issues</url>
 	</issueManagement>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh-aoindustries</id>
-			<name>ossrh-aoindustries</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<!-- Unused for Nexus plugin
-		<repository>
-			<id>ossrh-aoindustries</id>
-			<name>ossrh-aoindustries</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-		-->
-	</distributionManagement>
 </project>
