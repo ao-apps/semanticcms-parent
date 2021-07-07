@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-07-06T04:29:16-05:00"
+		dateModified="2021-07-07T01:36:32-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -92,11 +92,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				<li>
 					Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
 					failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
-					Please see:
-					<ol>
-						<li><ao:a href="https://stackoverflow.com/a/66371984">maven javadoc plugin error when used with modules Exit code: 1 - error: module not found:</ao:a></li>
-						<li><ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-673">Issue 673</ao:a></li>
-					</ol>
+					Please see <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">Issue 682</ao:a>.
 				</li>
 				<li>
 					<p>
