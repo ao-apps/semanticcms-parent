@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-07-09T12:22:41-05:00"
+		dateModified="2021-07-18T00:45:29-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,21 +47,30 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>
-						Added new "coverage" profile that enables <ao:a href="https://www.jacoco.org/jacoco/">JaCoCo unit test code coverage</ao:a>.
-						This is expected to primarily be used within continuous integration systems, and may be used as a basis for
-						<ao:a href="https://sonarcloud.io/">SonarCloud</ao:a>/<ao:a href="https://www.sonarqube.org/">SonarQube</ao:a> analysis.
-					</li>
-					<li>
-						Now <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">verifying artifact PGP signatures</ao:a>
-						on all builds.  This means that GPG signing is now performed for all builds, including local-only
-						builds with the "development" profile active.
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.13.0"
+			datePublished="2021-07-18T00:45:29-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>
+					Added new "coverage" profile that enables <ao:a href="https://www.jacoco.org/jacoco/">JaCoCo unit test code coverage</ao:a>.
+					This is expected to primarily be used within continuous integration systems, and may be used as a basis for
+					<ao:a href="https://sonarcloud.io/">SonarCloud</ao:a>/<ao:a href="https://www.sonarqube.org/">SonarQube</ao:a> analysis.
+				</li>
+				<li>
+					Now <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">verifying artifact PGP signatures</ao:a>
+					on all builds.  This means that GPG signing is now performed for all builds, including local-only
+					builds with the "development" profile active.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
