@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-09-21T23:04:45-05:00"
+		dateModified="2021-09-26T16:34:32-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,7 +47,17 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			/>
+			>
+				<ul>
+					<li>"skip-war" profile improvements to increase local development speed:
+						<ol>
+							<li>Enforces "development" profile is also active</li>
+							<li>Disables <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">PGP artifact verification</ao:a></li>
+							<li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
+						</ol>
+					</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
