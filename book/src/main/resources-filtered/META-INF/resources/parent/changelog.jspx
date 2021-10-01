@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-09-26T16:34:32-05:00"
+		dateModified="2021-09-30T04:13:05-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -56,6 +56,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 							<li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
 						</ol>
 					</li>
+					<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
