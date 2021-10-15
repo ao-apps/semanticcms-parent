@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-10-02T03:24:59-05:00"
+		dateModified="2021-10-15T17:44:43-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,20 +47,29 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>"skip-war" profile improvements to increase local development speed:
-						<ol>
-							<li>Enforces "development" profile is also active</li>
-							<li>Disables <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">PGP artifact verification</ao:a></li>
-							<li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
-						</ol>
-					</li>
-					<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-					<li>Enabled <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/check-mojo.html#verifyProvidedDependencies">verifying PGP keys of "provided" dependencies</ao:a>.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.13.3"
+			datePublished="2021-10-15T17:44:43-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>"skip-war" profile improvements to increase local development speed:
+					<ol>
+						<li>Enforces "development" profile is also active</li>
+						<li>Disables <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">PGP artifact verification</ao:a></li>
+						<li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
+					</ol>
+				</li>
+				<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+				<li>Enabled <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/check-mojo.html#verifyProvidedDependencies">verifying PGP keys of "provided" dependencies</ao:a>.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
