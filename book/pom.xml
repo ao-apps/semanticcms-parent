@@ -28,7 +28,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.13.3<!-- -POST-SNAPSHOT --></version>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.13.3-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.13.3</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -73,7 +73,7 @@ along with semanticcms-parent.  If not, see <http://www.gnu.org/licenses />.
 		<connection>scm:git:git://github.com/ao-apps/semanticcms-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:ao-apps/semanticcms-parent.git</developerConnection>
 		<url>https://github.com/ao-apps/semanticcms-parent</url>
-		<tag>HEAD</tag>
+		<tag>semanticcms-parent-book-1.13.3</tag>
 	</scm>
 
 	<issueManagement>
