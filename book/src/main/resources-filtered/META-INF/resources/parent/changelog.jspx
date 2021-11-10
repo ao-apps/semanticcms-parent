@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-11-09T14:03:49-06:00"
+		dateModified="2021-11-10T01:12:43-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -55,6 +55,12 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 						default <code>target</code>)</ao:a> may now be selected by providing an <code>alt.build.dir</code>
 						property.  We use this in continuous integration to be able to concurrently build a project for
 						multiple JDK versions, significantly reducing the build time.
+					</li>
+					<li>
+						<ao:a href="https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin">nexus-staging-maven-plugin</ao:a>
+						is now only enabled by a new <code>nexus</code> profile.  This is to support regular deployments
+						via <ao:a href="https://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</ao:a>
+						in continuous integration.
 					</li>
 				</ul>
 			</changelog:release>
