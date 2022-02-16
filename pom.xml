@@ -29,7 +29,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 		<relativePath>../../oss/parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.13.5-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.13.5</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -74,7 +74,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 		<connection>scm:git:git://github.com/ao-apps/semanticcms-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:ao-apps/semanticcms-parent.git</developerConnection>
 		<url>https://github.com/ao-apps/semanticcms-parent</url>
-		<tag>HEAD</tag>
+		<tag>semanticcms-parent-1.13.5</tag>
 	</scm>
 
 	<issueManagement>
