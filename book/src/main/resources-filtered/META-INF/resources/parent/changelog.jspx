@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-parent - Parent POM for all SemanticCMS packages.
-Copyright (C) 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2021-12-01T16:54:03-06:00"
+		dateModified="2022-02-15T18:25:39-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,25 +47,34 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-					<li>
-						<ao:a href="https://stackoverflow.com/a/12598554/7121505">An alternate build directory (other than the
-						default <code>target</code>)</ao:a> may now be selected by providing an <code>alt.build.dir</code>
-						property.  We use this in continuous integration to be able to concurrently build a project for
-						multiple JDK versions, significantly reducing the build time.
-					</li>
-					<li>
-						<ao:a href="https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin">nexus-staging-maven-plugin</ao:a>
-						is now only enabled by a new <code>nexus</code> profile.  This is to support regular deployments
-						via <ao:a href="https://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</ao:a>
-						in continuous integration.
-					</li>
-					<li>Added Jenkins continuous integration.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.13.5"
+			datePublished="2022-02-15T18:25:39-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+				<li>
+					<ao:a href="https://stackoverflow.com/a/12598554/7121505">An alternate build directory (other than the
+					default <code>target</code>)</ao:a> may now be selected by providing an <code>alt.build.dir</code>
+					property.  We use this in continuous integration to be able to concurrently build a project for
+					multiple JDK versions, significantly reducing the build time.
+				</li>
+				<li>
+					<ao:a href="https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin">nexus-staging-maven-plugin</ao:a>
+					is now only enabled by a new <code>nexus</code> profile.  This is to support regular deployments
+					via <ao:a href="https://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</ao:a>
+					in continuous integration.
+				</li>
+				<li>Added Jenkins continuous integration.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
