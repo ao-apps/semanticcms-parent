@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2022-03-18T16:36:27-05:00"
+		dateModified="2022-03-24T17:35:08-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -56,6 +56,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 						to only builds in <code><![CDATA[JDK &lt; 12]]></code> with no <code>src/main/java/module-info.java</code>.
 						The previous mitigation was applied too broadly and broke the search URLs for projects with modules.
 					</li>
+					<li>Reduced size of Javadoc top section and fixed scroll position in Java 11.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
