@@ -22,835 +22,835 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<core:page
-		title="@{documented.name} Changelog"
-		shortTitle="Changelog"
-		tocLevels="1"
-		datePublished="2016-11-13T18:03:31-06:00"
-		dateModified="2022-04-14T21:16:36-05:00"
-	>
-		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
-			<changelog:release
-				projectName="@{documented.name}"
-				version="@{project.version}"
-				groupId="@{project.groupId}"
-				artifactId="@{documented.artifactId}"
-				repository="@{nexusUrl}content/repositories/snapshots/"
-				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-					<li>Updated plugin versions.</li>
-					<li>
-						Limited the workaround for <ao:a href="https://bugs.openjdk.java.net/browse/JDK-8215291">JDK-8215291</ao:a>
-						to only builds in <code><![CDATA[JDK &lt; 12]]></code> with no <code>src/main/java/module-info.java</code>.
-						The previous mitigation was applied too broadly and broke the search URLs for projects with modules.
-					</li>
-					<li>Reduced size of Javadoc top section and fixed scroll position in Java 11.</li>
-					<li>
-						<p>
-							Enabled <ao:a href="https://checkstyle.org/">Checkstyle</ao:a> on all builds using
-							<ao:a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/index.html">Apache Maven Checkstyle Plugin</ao:a>.
-						</p>
-						<p>
-							The default style is based on <ao:a href="https://checkstyle.org/google_style.html">Google's Java Style Checkstyle</ao:a>,
-							but with the maximum line length increased to 120 characters.
-						</p>
-						<p>
-							By default, builds fail on Checkstyle error.  Each project that cannot immediately be adapted
-							to pass the analysis should configure the plugin with
-							<code><![CDATA[&lt;failOnViolation&gt;false&lt;/failOnViolation&gt;]]></code>.
-						</p>
-					</li>
-					<li>
-						<p>
-							Enabled <ao:a href="https://spotbugs.github.io/">SpotBugs</ao:a> on all builds using
-							<ao:a href="https://spotbugs.github.io/spotbugs-maven-plugin/index.html">SpotBugs Maven Plugin</ao:a>.
-						</p>
-						<p>
-							By default, builds fail on SpotBugs error.  Each project that cannot immediately be adapted
-							to pass the analysis should configure the plugin with
-							<code><![CDATA[&lt;failOnError&gt;false&lt;/failOnError&gt;]]></code>.
-						</p>
-					</li>
-				</ul>
-			</changelog:release>
-		</c:if>
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <core:page
+    title="@{documented.name} Changelog"
+    shortTitle="Changelog"
+    tocLevels="1"
+    datePublished="2016-11-13T18:03:31-06:00"
+    dateModified="2022-04-14T21:16:36-05:00"
+  >
+    <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
+      <changelog:release
+        projectName="@{documented.name}"
+        version="@{project.version}"
+        groupId="@{project.groupId}"
+        artifactId="@{documented.artifactId}"
+        repository="@{nexusUrl}content/repositories/snapshots/"
+        scmUrl="@{project.scm.url}"
+      >
+        <ul>
+          <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+          <li>Updated plugin versions.</li>
+          <li>
+            Limited the workaround for <ao:a href="https://bugs.openjdk.java.net/browse/JDK-8215291">JDK-8215291</ao:a>
+            to only builds in <code><![CDATA[JDK &lt; 12]]></code> with no <code>src/main/java/module-info.java</code>.
+            The previous mitigation was applied too broadly and broke the search URLs for projects with modules.
+          </li>
+          <li>Reduced size of Javadoc top section and fixed scroll position in Java 11.</li>
+          <li>
+            <p>
+              Enabled <ao:a href="https://checkstyle.org/">Checkstyle</ao:a> on all builds using
+              <ao:a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/index.html">Apache Maven Checkstyle Plugin</ao:a>.
+            </p>
+            <p>
+              The default style is based on <ao:a href="https://checkstyle.org/google_style.html">Google's Java Style Checkstyle</ao:a>,
+              but with the maximum line length increased to 120 characters.
+            </p>
+            <p>
+              By default, builds fail on Checkstyle error.  Each project that cannot immediately be adapted
+              to pass the analysis should configure the plugin with
+              <code><![CDATA[&lt;failOnViolation&gt;false&lt;/failOnViolation&gt;]]></code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Enabled <ao:a href="https://spotbugs.github.io/">SpotBugs</ao:a> on all builds using
+              <ao:a href="https://spotbugs.github.io/spotbugs-maven-plugin/index.html">SpotBugs Maven Plugin</ao:a>.
+            </p>
+            <p>
+              By default, builds fail on SpotBugs error.  Each project that cannot immediately be adapted
+              to pass the analysis should configure the plugin with
+              <code><![CDATA[&lt;failOnError&gt;false&lt;/failOnError&gt;]]></code>.
+            </p>
+          </li>
+        </ul>
+      </changelog:release>
+    </c:if>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.6"
-			datePublished="2022-02-16T00:53:46-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Configured missing <ao:a href="https://central.sonatype.org/publish/publish-maven/#manually-releasing-the-deployment-to-the-central-repository">automatic release during deployment</ao:a>.
-					Any release artifacts made with the previous parent requires manual "Release" in OSSRH Nexus Repository Manager.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.6"
+      datePublished="2022-02-16T00:53:46-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Configured missing <ao:a href="https://central.sonatype.org/publish/publish-maven/#manually-releasing-the-deployment-to-the-central-repository">automatic release during deployment</ao:a>.
+          Any release artifacts made with the previous parent requires manual "Release" in OSSRH Nexus Repository Manager.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.5"
-			datePublished="2022-02-15T18:25:39-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-				<li>
-					<ao:a href="https://stackoverflow.com/a/12598554/7121505">An alternate build directory (other than the
-					default <code>target</code>)</ao:a> may now be selected by providing an <code>alt.build.dir</code>
-					property.  We use this in continuous integration to be able to concurrently build a project for
-					multiple JDK versions, significantly reducing the build time.
-				</li>
-				<li>
-					<ao:a href="https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin">nexus-staging-maven-plugin</ao:a>
-					is now only enabled by a new <code>nexus</code> profile.  This is to support regular deployments
-					via <ao:a href="https://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</ao:a>
-					in continuous integration.
-				</li>
-				<li>Added Jenkins continuous integration.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.5"
+      datePublished="2022-02-15T18:25:39-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+        <li>
+          <ao:a href="https://stackoverflow.com/a/12598554/7121505">An alternate build directory (other than the
+          default <code>target</code>)</ao:a> may now be selected by providing an <code>alt.build.dir</code>
+          property.  We use this in continuous integration to be able to concurrently build a project for
+          multiple JDK versions, significantly reducing the build time.
+        </li>
+        <li>
+          <ao:a href="https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin">nexus-staging-maven-plugin</ao:a>
+          is now only enabled by a new <code>nexus</code> profile.  This is to support regular deployments
+          via <ao:a href="https://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</ao:a>
+          in continuous integration.
+        </li>
+        <li>Added Jenkins continuous integration.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.4"
-			datePublished="2021-10-16T21:50:22-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Java updates:
-					<ol>
-						<li>Java 16 is now end-of-life</li>
-						<li>Java 17 is now current stable</li>
-						<li>Java 18 is new beta</li>
-					</ol>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.4"
+      datePublished="2021-10-16T21:50:22-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Java updates:
+          <ol>
+            <li>Java 16 is now end-of-life</li>
+            <li>Java 17 is now current stable</li>
+            <li>Java 18 is new beta</li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.3"
-			datePublished="2021-10-15T17:44:43-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>"skip-war" profile improvements to increase local development speed:
-					<ol>
-						<li>Enforces "development" profile is also active</li>
-						<li>Disables <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">PGP artifact verification</ao:a></li>
-						<li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
-					</ol>
-				</li>
-				<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-				<li>Enabled <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/check-mojo.html#verifyProvidedDependencies">verifying PGP keys of "provided" dependencies</ao:a>.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.3"
+      datePublished="2021-10-15T17:44:43-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>"skip-war" profile improvements to increase local development speed:
+          <ol>
+            <li>Enforces "development" profile is also active</li>
+            <li>Disables <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">PGP artifact verification</ao:a></li>
+            <li>Disables <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/">GPG artifact signing</ao:a></li>
+          </ol>
+        </li>
+        <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+        <li>Enabled <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/check-mojo.html#verifyProvidedDependencies">verifying PGP keys of "provided" dependencies</ao:a>.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.2"
-			datePublished="2021-09-21T23:04:45-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.2"
+      datePublished="2021-09-21T23:04:45-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.1"
-			datePublished="2021-08-17T15:09:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Updated to latest releases of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>
-					and <ao:a href="https://oss.aoapps.com/pgp-keys-map/">AO PGP Keys Map</ao:a>.
-				</li>
-				<li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/1.8.0.html">Apache Axis2 1.8.0</ao:a>.</li>
-				<li>Updated plugin versions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.1"
+      datePublished="2021-08-17T15:09:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Updated to latest releases of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>
+          and <ao:a href="https://oss.aoapps.com/pgp-keys-map/">AO PGP Keys Map</ao:a>.
+        </li>
+        <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/1.8.0.html">Apache Axis2 1.8.0</ao:a>.</li>
+        <li>Updated plugin versions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.13.0"
-			datePublished="2021-07-18T00:45:29-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Added new "coverage" profile that enables <ao:a href="https://www.jacoco.org/jacoco/">JaCoCo unit test code coverage</ao:a>.
-					This is expected to primarily be used within continuous integration systems, and may be used as a basis for
-					<ao:a href="https://sonarcloud.io/">SonarCloud</ao:a>/<ao:a href="https://www.sonarqube.org/">SonarQube</ao:a> analysis.
-				</li>
-				<li>
-					Now <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">verifying artifact PGP signatures</ao:a>
-					on all builds.  This means that GPG signing is now performed for all builds, including local-only
-					builds with the "development" profile active.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.13.0"
+      datePublished="2021-07-18T00:45:29-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Added new "coverage" profile that enables <ao:a href="https://www.jacoco.org/jacoco/">JaCoCo unit test code coverage</ao:a>.
+          This is expected to primarily be used within continuous integration systems, and may be used as a basis for
+          <ao:a href="https://sonarcloud.io/">SonarCloud</ao:a>/<ao:a href="https://www.sonarqube.org/">SonarQube</ao:a> analysis.
+        </li>
+        <li>
+          Now <ao:a href="https://www.simplify4u.org/pgpverify-maven-plugin/">verifying artifact PGP signatures</ao:a>
+          on all builds.  This means that GPG signing is now performed for all builds, including local-only
+          builds with the "development" profile active.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.12.0"
-			datePublished="2021-07-06T04:29:16-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a> on builds.</li>
-				<li>Java™ EE updates:
-					<ol>
-						<li>
-							Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
-							to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
-						</li>
-						<li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
-						<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
-						<li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
-					</ol>
-				</li>
-				<li>Changed default Java version from 1.8 to 11</li>
-				<li>
-					Enabled <ao:a href="https://www.mojohaus.org/extra-enforcer-rules/enforceBytecodeVersion.html">dependency bytecode version checks</ao:a>
-					on builds.  This will ensure a project does not inadvertently depend on a library of a newer Java
-					version than the project itself.  The check is skipped when the <code>development</code> profile
-					is active.
-				</li>
-				<li>Updated plugin versions.</li>
-				<li><code>Bundle-SymbolicName</code> is now defined to be the same as Java 9+ module names.</li>
-				<li>
-					The "release" profile is now only to be used for production non-SNAPSHOT releases.  SNAPSHOT
-					builds should only use the "POST-SNAPSHOT" profile.  Local development builds should now use the
-					"development" profile, and may optionally use the "POST-SNAPSHOT" profile.
-				</li>
-				<li>
-					Reverted <code>maven-dependency-plugin</code> from version 3.2.0 to 3.1.2 until
-					<ao:a href="https://issues.apache.org/jira/browse/MDEP-753">Issue 753</ao:a> is resolved.
-				</li>
-				<li>
-					Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
-					failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
-					Please see <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">Issue 682</ao:a>.
-				</li>
-				<li>
-					<p>
-						Several profiles may now be conveniently activated by the presence of files in an optional
-						<code>profile.d</code> directory.  This technique is primarily a workaround for profiles not
-						being able to be activated by properties of sub-projects, and has the added benefit that the
-						set of profiles across all projects is easily manipulated through Bash scripts.
-					</p>
-					<p>
-						This includes <code>maven.javadoc.skip</code>, <code>maven.install.skip</code>,
-						<code>maven.deploy.skip</code>, and <code>skipNexusStagingDeployMojo</code>, which all have
-						the expected skipping behavior matching the property of the same name.
-					</p>
-				</li>
-				<li>
-					Nexus Repository Manager URL is now defined in a <code>$nexusUrl</code> property.
-					The URL should end with a slash (/) and is used for both distributionManagement/snapshotRepository
-					and nexus-staging-maven-plugin/nexusUrl.  Defaults to <ao:a href="https://oss.sonatype.org/" />
-					since groupId <code>com.semanticcms</code> is on the original Sonatype Nexus Repository Manager.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.12.0"
+      datePublished="2021-07-06T04:29:16-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Enabled <ao:a href="https://sonatype.github.io/ossindex-maven/maven-plugin/">dependency audits</ao:a> on builds.</li>
+        <li>Java™ EE updates:
+          <ol>
+            <li>
+              Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
+              to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
+            </li>
+            <li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
+          </ol>
+        </li>
+        <li>Changed default Java version from 1.8 to 11</li>
+        <li>
+          Enabled <ao:a href="https://www.mojohaus.org/extra-enforcer-rules/enforceBytecodeVersion.html">dependency bytecode version checks</ao:a>
+          on builds.  This will ensure a project does not inadvertently depend on a library of a newer Java
+          version than the project itself.  The check is skipped when the <code>development</code> profile
+          is active.
+        </li>
+        <li>Updated plugin versions.</li>
+        <li><code>Bundle-SymbolicName</code> is now defined to be the same as Java 9+ module names.</li>
+        <li>
+          The "release" profile is now only to be used for production non-SNAPSHOT releases.  SNAPSHOT
+          builds should only use the "POST-SNAPSHOT" profile.  Local development builds should now use the
+          "development" profile, and may optionally use the "POST-SNAPSHOT" profile.
+        </li>
+        <li>
+          Reverted <code>maven-dependency-plugin</code> from version 3.2.0 to 3.1.2 until
+          <ao:a href="https://issues.apache.org/jira/browse/MDEP-753">Issue 753</ao:a> is resolved.
+        </li>
+        <li>
+          Reverted <code>maven-javadoc-plugin</code> from version 3.3.0 to 3.0.1 since reactor builds are
+          failing with "Exit code: 1 - error: module not found: …" on projects with Java 9+ modules.
+          Please see <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">Issue 682</ao:a>.
+        </li>
+        <li>
+          <p>
+            Several profiles may now be conveniently activated by the presence of files in an optional
+            <code>profile.d</code> directory.  This technique is primarily a workaround for profiles not
+            being able to be activated by properties of sub-projects, and has the added benefit that the
+            set of profiles across all projects is easily manipulated through Bash scripts.
+          </p>
+          <p>
+            This includes <code>maven.javadoc.skip</code>, <code>maven.install.skip</code>,
+            <code>maven.deploy.skip</code>, and <code>skipNexusStagingDeployMojo</code>, which all have
+            the expected skipping behavior matching the property of the same name.
+          </p>
+        </li>
+        <li>
+          Nexus Repository Manager URL is now defined in a <code>$nexusUrl</code> property.
+          The URL should end with a slash (/) and is used for both distributionManagement/snapshotRepository
+          and nexus-staging-maven-plugin/nexusUrl.  Defaults to <ao:a href="https://oss.sonatype.org/" />
+          since groupId <code>com.semanticcms</code> is on the original Sonatype Nexus Repository Manager.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.11.2"
-			datePublished="2021-03-20T11:11:01-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Java updates:
-					<ol>
-						<li>Java 15 is now end-of-life</li>
-						<li>Java 16 is now current stable</li>
-						<li>Java 17 is new beta</li>
-					</ol>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.11.2"
+      datePublished="2021-03-20T11:11:01-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Java updates:
+          <ol>
+            <li>Java 15 is now end-of-life</li>
+            <li>Java 16 is now current stable</li>
+            <li>Java 17 is new beta</li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.11.1"
-			datePublished="2021-03-18T04:32:42-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated plugin versions.</li>
-				<li>
-					Removed offline Javadocs for <code>com.servlets:cos</code>, since we have eradicated it from all projects in favor of
-					<ao:a rel="nofollow" href="@{javadoc.link.javaee}javax/servlet/http/HttpServletRequest.html#getParts()">the standard file upload API</ao:a>
-					and <ao:a href="https://javaee.github.io/javamail/">JavaMail</ao:a>.
-				</li>
-				<li>
-					Added <ao:a href="https://stackoverflow.com/a/57284322">workaround for "undefined" in URL during Javadoc search</ao:a>
-					when project has no modules.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.11.1"
+      datePublished="2021-03-18T04:32:42-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated plugin versions.</li>
+        <li>
+          Removed offline Javadocs for <code>com.servlets:cos</code>, since we have eradicated it from all projects in favor of
+          <ao:a rel="nofollow" href="@{javadoc.link.javaee}javax/servlet/http/HttpServletRequest.html#getParts()">the standard file upload API</ao:a>
+          and <ao:a href="https://javaee.github.io/javamail/">JavaMail</ao:a>.
+        </li>
+        <li>
+          Added <ao:a href="https://stackoverflow.com/a/57284322">workaround for "undefined" in URL during Javadoc search</ao:a>
+          when project has no modules.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.11.0"
-			datePublished="2020-12-07T21:06:46-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					<p>
-						Switched back to generating Javadocs links with <code>target="_top"</code> on all versions of
-						Java.  Eventhough the API Docs are generated without frames as of Java 9, they may still be used
-						within frames in other contexts, such as when viewed at <ao:a href="https://javadoc.io/" />.
-					</p>
-					<p>
-						Furthermore, browsers are increasingly blocking or issuing warnings when a link tries to go
-						to a different site within a frame.  This change ensures links always escape frames.
-					</p>
-				</li>
-				<li>
-					New build properties <code>\${build.isSnapshot}</code> and <code>\${build.notSnapshot}</code>
-					that are set to <code>true</code> or <code>false</code>, depending in whether the
-					<code>\${project.version}</code> is, or is not respectively, <code>*-SNAPSHOT</code>.
-				</li>
-				<li>Updated plugin versions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.11.0"
+      datePublished="2020-12-07T21:06:46-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          <p>
+            Switched back to generating Javadocs links with <code>target="_top"</code> on all versions of
+            Java.  Eventhough the API Docs are generated without frames as of Java 9, they may still be used
+            within frames in other contexts, such as when viewed at <ao:a href="https://javadoc.io/" />.
+          </p>
+          <p>
+            Furthermore, browsers are increasingly blocking or issuing warnings when a link tries to go
+            to a different site within a frame.  This change ensures links always escape frames.
+          </p>
+        </li>
+        <li>
+          New build properties <code>\${build.isSnapshot}</code> and <code>\${build.notSnapshot}</code>
+          that are set to <code>true</code> or <code>false</code>, depending in whether the
+          <code>\${project.version}</code> is, or is not respectively, <code>*-SNAPSHOT</code>.
+        </li>
+        <li>Updated plugin versions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.10.0"
-			datePublished="2020-11-25T02:30:48-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Added default NetBeans formatting settings.</li>
-				<li>Added default NetBeans server settings.</li>
-				<li>Added default NetBeans hint settings.</li>
-				<li>Added default NetBeans line ending settings.</li>
-				<li>Added plugin repositories to match repositories.</li>
-				<li>
-					Now <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html">analyzing dependencies</ao:a>
-					during release builds.
-				</li>
-				<li>
-					Now automatically configures <ao:a href="https://www.mojohaus.org/versions-maven-plugin/display-dependency-updates-mojo.html#rulesUri">rulesUri</ao:a>
-					for <ao:a href="https://www.mojohaus.org/versions-maven-plugin/">versions-maven-plugin</ao:a>
-					when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
-				</li>
-				<li>Java updates:
-					<ol>
-						<li>Java 14 is now end-of-life</li>
-						<li>Java 15 is now current stable</li>
-						<li>Java 16 is new beta</li>
-					</ol>
-				</li>
-				<li>Updated plugin versions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.10.0"
+      datePublished="2020-11-25T02:30:48-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Added default NetBeans formatting settings.</li>
+        <li>Added default NetBeans server settings.</li>
+        <li>Added default NetBeans hint settings.</li>
+        <li>Added default NetBeans line ending settings.</li>
+        <li>Added plugin repositories to match repositories.</li>
+        <li>
+          Now <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html">analyzing dependencies</ao:a>
+          during release builds.
+        </li>
+        <li>
+          Now automatically configures <ao:a href="https://www.mojohaus.org/versions-maven-plugin/display-dependency-updates-mojo.html#rulesUri">rulesUri</ao:a>
+          for <ao:a href="https://www.mojohaus.org/versions-maven-plugin/">versions-maven-plugin</ao:a>
+          when the <code>versions-rules.xml</code> file exists, via a new <code>versions-rules</code> profile.
+        </li>
+        <li>Java updates:
+          <ol>
+            <li>Java 14 is now end-of-life</li>
+            <li>Java 15 is now current stable</li>
+            <li>Java 16 is new beta</li>
+          </ol>
+        </li>
+        <li>Updated plugin versions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.9.0"
-			datePublished="2020-06-11T02:41:56-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Corrected the default value for the Maven build property <code>documented.javadoc.link.javaee</code>.</li>
-				<li>
-					<p>
-						Set <code><![CDATA[&lt;detectOfflineLinks&gt;false&lt;/detectOfflineLinks&gt;]]></code>
-						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
-					</p>
-					<p>
-						Projects are built and released on an individual basis, and thus we manually link
-						between projects to not rely on reactor / aggregator builds to achieve proper linking.
-					</p>
-					<p>
-						Furthermore, we maximize the use of offline links from javadoc artifacts.
-						This has several benefits:
-					</p>
-					<ol>
-						<li>Repeatable builds: linking is done against the specified version versus whatever is published online</li>
-						<li>More reliable build: does not depend on external apidocs server to be online</li>
-						<li>Higher build performance: uses locally cached artifacts instead of http/https requests on each build</li>
-						<li>Offline builds: when all artifacts are already locally available</li>
-						<li>Private builds: linking to apidocs from private projects not publicly available</li>
-						<li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
-						<li>New version linking: links are properly created before releasing new versions</li>
-					</ol>
-					<p>
-						Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
-						on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
-						advantage of the new <ao:a href="https://oss.aoapps.com/javadoc-offline/">AO Javadoc Offline</ao:a> project.
-						Furthermore, the offline links also include JavaMail and Java EE.
-					</p>
-					<p>
-						Offline links are enabled by the new <code>offlineLinks</code> profile, which is activated
-						by the presence of <code>src/main/java</code>.  If desired, this profile may be deactivated
-						during a build with <code>mvn -P'!offlineLinks' …</code>.
-					</p>
-				</li>
-				<li>
-					Moved configuration into <code><![CDATA[&lt;pluginManagement /&gt;]]></code> where appropriate.
-					<p>
-						One notable consequence is that Javadocs are now fully formatted without
-						requiring the <code>release</code> profile.
-					</p>
-				</li>
-				<li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
-				<li>Now supporting generated resources on all projects.</li>
-				<li>
-					<p>
-						Enabled the <ao:a href="https://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
-						on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
-					</p>
-					<p>
-						Projects that have access to their parent either directly or over HTTP/HTTPS may remove
-						<code>wagon-ssh-external</code> from their <code>.mvn/extensions.xml</code>.  However,
-						if the parent is accessed through <code>scpexe://…</code>, the declaration in <code>extensions.xml</code>
-						is still required.
-					</p>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.9.0"
+      datePublished="2020-06-11T02:41:56-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Corrected the default value for the Maven build property <code>documented.javadoc.link.javaee</code>.</li>
+        <li>
+          <p>
+            Set <code><![CDATA[&lt;detectOfflineLinks&gt;false&lt;/detectOfflineLinks&gt;]]></code>
+            on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+          </p>
+          <p>
+            Projects are built and released on an individual basis, and thus we manually link
+            between projects to not rely on reactor / aggregator builds to achieve proper linking.
+          </p>
+          <p>
+            Furthermore, we maximize the use of offline links from javadoc artifacts.
+            This has several benefits:
+          </p>
+          <ol>
+            <li>Repeatable builds: linking is done against the specified version versus whatever is published online</li>
+            <li>More reliable build: does not depend on external apidocs server to be online</li>
+            <li>Higher build performance: uses locally cached artifacts instead of http/https requests on each build</li>
+            <li>Offline builds: when all artifacts are already locally available</li>
+            <li>Private builds: linking to apidocs from private projects not publicly available</li>
+            <li>Chicken-and-Egg resolved: can link between projects before publishing any of them</li>
+            <li>New version linking: links are properly created before releasing new versions</li>
+          </ol>
+          <p>
+            Default <code><![CDATA[&lt;links /&gt;]]></code> converted to <code><![CDATA[&lt;offlineLinks /&gt;]]></code>
+            on <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>, taking
+            advantage of the new <ao:a href="https://oss.aoapps.com/javadoc-offline/">AO Javadoc Offline</ao:a> project.
+            Furthermore, the offline links also include JavaMail and Java EE.
+          </p>
+          <p>
+            Offline links are enabled by the new <code>offlineLinks</code> profile, which is activated
+            by the presence of <code>src/main/java</code>.  If desired, this profile may be deactivated
+            during a build with <code>mvn -P'!offlineLinks' …</code>.
+          </p>
+        </li>
+        <li>
+          Moved configuration into <code><![CDATA[&lt;pluginManagement /&gt;]]></code> where appropriate.
+          <p>
+            One notable consequence is that Javadocs are now fully formatted without
+            requiring the <code>release</code> profile.
+          </p>
+        </li>
+        <li>Restored <code>Built-By</code> manifest entry on <code>bundle</code> and <code>war</code> packaging.</li>
+        <li>Now supporting generated resources on all projects.</li>
+        <li>
+          <p>
+            Enabled the <ao:a href="https://maven.apache.org/wagon/wagon-providers/wagon-ssh-external/">wagon-ssh-external</ao:a> extension
+            on all projects, which supports access to artifact repositories via <code>scpexe://…</code> URLs.
+          </p>
+          <p>
+            Projects that have access to their parent either directly or over HTTP/HTTPS may remove
+            <code>wagon-ssh-external</code> from their <code>.mvn/extensions.xml</code>.  However,
+            if the parent is accessed through <code>scpexe://…</code>, the declaration in <code>extensions.xml</code>
+            is still required.
+          </p>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.8.0"
-			datePublished="2020-05-19T00:20:41-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Added <ao:a href="https://axis.apache.org/axis2/java/core/tools/maven-plugins/axis2-aar-maven-plugin/howto.html">axis2-aar-maven-plugin</ao:a> for building web services.
-					<ol>
-						<li>Configured manifest entries consistent with other plugins.</li>
-					</ol>
-				</li>
-				<li>
-					Changed <code>Built-By</code> manifest entries from defaulting to blank
-					to now defaulting to <code>\${project.organization.name}</code>.
-				</li>
-				<li>
-					Enabled <code><![CDATA[&lt;attachClasses&gt;true&lt;/attachClasses&gt;]]></code>
-					on <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> when
-					<code>src/main/java</code> exists.  This allows the classes to by used as a dependency.
-					This is particularly useful for our multi-project translation tools.
-				</li>
-				<li>
-					Set <code><![CDATA[&lt;trimStackTrace&gt;false&lt;/trimStackTrace&gt;]]></code>
-					on <ao:a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</ao:a>.
-					The full stack traces of exceptions during testing should help in debugging.
-				</li>
-				<li>
-					Defined default build resources of both <code>src/main/resources</code> and <code>src/main/resources-filtered</code> (filtered).
-					Previously, we had obtained this behavior through configuring plugins directly, but missed the more proper
-					approach of defining in project/build/resources.  This cleans-up the implementation, and allows other
-					parts of the configuration to work correctly when projects define different or additional resources.
-				</li>
-				<li>
-					Defined default test resources of both <code>src/test/resources</code> and <code>src/test/resources-filtered</code> (filtered).
-					This is for consistency with the definition of compilation resources.
-				</li>
-				<li>
-					Added <ao:a href="https://maven.apache.org/plugins/maven-jar-plugin/test-jar-mojo.html">tests</ao:a>,
-					<ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/test-jar-mojo.html">test-javadoc</ao:a>,
-					and <ao:a href="https://maven.apache.org/plugins/maven-source-plugin/test-jar-no-fork-mojo.html">test-sources</ao:a>
-					artifacts, unless empty.
-				</li>
-				<li>
-					Configured <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> to support filtered
-					<code>META-INF/context.xml</code>, which is used to provide development values to web applications:
-					<ol>
-						<li>
-							Added filtered web resources <code>src/main/webapp-filtered</code>, which is expected
-							to include a <code>META-INF/context.xml</code>.  This means that projects
-							<strong>must have a <code>src/main/webapp-filtered</code> directory</strong>,
-							even if just an empty directory.
-						</li>
-						<li>
-							Excluded <code>src/main/webapp/META-INF/context.xml</code> so that the filtered
-							version may be used.  This file still must be present, however, as NetBeans uses
-							this file to determine how to deploy to local development Tomcat.
-						</li>
-						<li>
-							<code>META-INF/context.xml</code> is not included in the WAR file.  The expectation is production
-							values will be provided by the container.
-						</li>
-					</ol>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.8.0"
+      datePublished="2020-05-19T00:20:41-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Added <ao:a href="https://axis.apache.org/axis2/java/core/tools/maven-plugins/axis2-aar-maven-plugin/howto.html">axis2-aar-maven-plugin</ao:a> for building web services.
+          <ol>
+            <li>Configured manifest entries consistent with other plugins.</li>
+          </ol>
+        </li>
+        <li>
+          Changed <code>Built-By</code> manifest entries from defaulting to blank
+          to now defaulting to <code>\${project.organization.name}</code>.
+        </li>
+        <li>
+          Enabled <code><![CDATA[&lt;attachClasses&gt;true&lt;/attachClasses&gt;]]></code>
+          on <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> when
+          <code>src/main/java</code> exists.  This allows the classes to by used as a dependency.
+          This is particularly useful for our multi-project translation tools.
+        </li>
+        <li>
+          Set <code><![CDATA[&lt;trimStackTrace&gt;false&lt;/trimStackTrace&gt;]]></code>
+          on <ao:a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</ao:a>.
+          The full stack traces of exceptions during testing should help in debugging.
+        </li>
+        <li>
+          Defined default build resources of both <code>src/main/resources</code> and <code>src/main/resources-filtered</code> (filtered).
+          Previously, we had obtained this behavior through configuring plugins directly, but missed the more proper
+          approach of defining in project/build/resources.  This cleans-up the implementation, and allows other
+          parts of the configuration to work correctly when projects define different or additional resources.
+        </li>
+        <li>
+          Defined default test resources of both <code>src/test/resources</code> and <code>src/test/resources-filtered</code> (filtered).
+          This is for consistency with the definition of compilation resources.
+        </li>
+        <li>
+          Added <ao:a href="https://maven.apache.org/plugins/maven-jar-plugin/test-jar-mojo.html">tests</ao:a>,
+          <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/test-jar-mojo.html">test-javadoc</ao:a>,
+          and <ao:a href="https://maven.apache.org/plugins/maven-source-plugin/test-jar-no-fork-mojo.html">test-sources</ao:a>
+          artifacts, unless empty.
+        </li>
+        <li>
+          Configured <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a> to support filtered
+          <code>META-INF/context.xml</code>, which is used to provide development values to web applications:
+          <ol>
+            <li>
+              Added filtered web resources <code>src/main/webapp-filtered</code>, which is expected
+              to include a <code>META-INF/context.xml</code>.  This means that projects
+              <strong>must have a <code>src/main/webapp-filtered</code> directory</strong>,
+              even if just an empty directory.
+            </li>
+            <li>
+              Excluded <code>src/main/webapp/META-INF/context.xml</code> so that the filtered
+              version may be used.  This file still must be present, however, as NetBeans uses
+              this file to determine how to deploy to local development Tomcat.
+            </li>
+            <li>
+              <code>META-INF/context.xml</code> is not included in the WAR file.  The expectation is production
+              values will be provided by the container.
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.7.0"
-			datePublished="2020-04-21T02:45:50-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					<p>
-						Newer versions of Javadocs no longer use frames.  We now build
-						API docs with <code>target="_self"</code> for <![CDATA[JDK &gt;= 9]]>.
-					</p>
-					<p>
-						We still support building with older JDK versions,
-						in which <code>target="_top"</code> is used so that links
-						can escape the frames.
-					</p>
-				</li>
-				<li>Updated plugin versions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.7.0"
+      datePublished="2020-04-21T02:45:50-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          <p>
+            Newer versions of Javadocs no longer use frames.  We now build
+            API docs with <code>target="_self"</code> for <![CDATA[JDK &gt;= 9]]>.
+          </p>
+          <p>
+            We still support building with older JDK versions,
+            in which <code>target="_top"</code> is used so that links
+            can escape the frames.
+          </p>
+        </li>
+        <li>Updated plugin versions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.6.1"
-			datePublished="2020-03-24T20:55:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated links to <ao:a href="https://search.maven.org/" /></li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.6.1"
+      datePublished="2020-03-24T20:55:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated links to <ao:a href="https://search.maven.org/" /></li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.6.0"
-			datePublished="2020-03-23T22:15:29-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Changed default Java version from 1.7 to 1.8</li>
-				<li>
-					Reduced use of property substitutions in <code>pom.xml</code>.
-					This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
-				</li>
-				<li>Now setting build properties <code>maven.compiler.source</code> and <code>maven.compiler.target</code>.</li>
-				<li>
-					Now setting build property <code>javadoc.link.javamail</code> in parent POM
-					instead of on a per-project basis.
-				</li>
-				<li>
-					Now setting builds properties <code>documented.javase.version</code> and <code>documented.javadoc.link.javase</code>
-					in parent POM, with the default Java version (currently 1.8).  This allows books to not specify
-					the Java version of the documented project when it is the default.
-				</li>
-				<li>
-					Renamed some build properties to better represent their usage:
-					<ol>
-						<li>
-							Consolidated build properties <code>compiler.bootclasspath</code> and <code>javac.bootclasspath</code>
-							into a single property <code>java.bootclasspath</code>.
-						</li>
-						<li><code>javaVersion</code>                   to <code>javase.version</code></li>
-						<li><code>javac.link.javaApi</code>            to <code>javadoc.link.javase</code></li>
-						<li><code>javac.link.javaApi.jdk*</code>       to <code>javadoc.link.javase.*</code></li>
-						<li><code>javac.link.javaeeApi.*</code>        to <code>javadoc.link.javaee.*</code></li>
-						<li><code>javac.link.javamailApi</code>        to <code>javadoc.link.javamail</code></li>
-						<li><code>java.bootclasspath</code>            to <code>javase.bootclasspath</code></li>
-						<li><code>javase.bootclasspath*</code>         to <code>javase.bootclasspath.*</code></li>
-						<li><code>documented.javaVersion</code>        to <code>documented.javase.version</code></li>
-						<li><code>documented.javac.link.javaApi</code> to <code>documented.javadoc.link.javase</code></li>
-					</ol>
-				</li>
-				<li>Renamed profile <code>bootclasspaths</code> to <code>javase.bootclasspath</code>.</li>
-				<li>Added build properties for Java EE:
-					<ol>
-						<li><code>javaee.version</code>,default <code>6</code></li>
-						<li><code>javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
-						<li><code>documented.javaee.version</code>, default <code>6</code></li>
-						<li><code>documented.javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
-					</ol>
-				</li>
-				<li>
-					Added <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#source"><![CDATA[&lt;source&gt;]]></ao:a>
-					configuration to <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html">maven-javadoc-plugin</ao:a> to build correctly in Java 11.
-				</li>
-				<li>Simplified use of <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html">maven-gpg-plugin</ao:a>:
-					<ul>
-						<li>Changed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#lockMode">lockMode</ao:a> to a fixed value "multiple"</li>
-						<li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#defaultKeyring">defaultKeyring</ao:a></li>
-						<li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#useAgent">useAgent</ao:a></li>
-						<li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#publicKeyring">publicKeyring</ao:a></li>
-						<li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#secretKeyring">secretKeyring</ao:a></li>
-					</ul>
-				</li>
-				<li>Now using <code>--release</code> instead of <code>-bootclasspath</code> when building with <![CDATA[JDK &gt;= 9]]>.</li>
-				<li>Java updates:
-					<ol>
-						<li>Java 13 is now end-of-life</li>
-						<li>Java 14 is now current stable</li>
-						<li>Java 15 is new beta</li>
-					</ol>
-				</li>
-				<li>
-					Changed default <ao:a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html#BEJEFABE">doclint</ao:a>
-					from <code>-Xdoclint:none</code> to <code>-Xdoclint:all,-missing</code>.
-				</li>
-				<li>Updated plugin versions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.6.0"
+      datePublished="2020-03-23T22:15:29-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Changed default Java version from 1.7 to 1.8</li>
+        <li>
+          Reduced use of property substitutions in <code>pom.xml</code>.
+          This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
+        </li>
+        <li>Now setting build properties <code>maven.compiler.source</code> and <code>maven.compiler.target</code>.</li>
+        <li>
+          Now setting build property <code>javadoc.link.javamail</code> in parent POM
+          instead of on a per-project basis.
+        </li>
+        <li>
+          Now setting builds properties <code>documented.javase.version</code> and <code>documented.javadoc.link.javase</code>
+          in parent POM, with the default Java version (currently 1.8).  This allows books to not specify
+          the Java version of the documented project when it is the default.
+        </li>
+        <li>
+          Renamed some build properties to better represent their usage:
+          <ol>
+            <li>
+              Consolidated build properties <code>compiler.bootclasspath</code> and <code>javac.bootclasspath</code>
+              into a single property <code>java.bootclasspath</code>.
+            </li>
+            <li><code>javaVersion</code>                   to <code>javase.version</code></li>
+            <li><code>javac.link.javaApi</code>            to <code>javadoc.link.javase</code></li>
+            <li><code>javac.link.javaApi.jdk*</code>       to <code>javadoc.link.javase.*</code></li>
+            <li><code>javac.link.javaeeApi.*</code>        to <code>javadoc.link.javaee.*</code></li>
+            <li><code>javac.link.javamailApi</code>        to <code>javadoc.link.javamail</code></li>
+            <li><code>java.bootclasspath</code>            to <code>javase.bootclasspath</code></li>
+            <li><code>javase.bootclasspath*</code>         to <code>javase.bootclasspath.*</code></li>
+            <li><code>documented.javaVersion</code>        to <code>documented.javase.version</code></li>
+            <li><code>documented.javac.link.javaApi</code> to <code>documented.javadoc.link.javase</code></li>
+          </ol>
+        </li>
+        <li>Renamed profile <code>bootclasspaths</code> to <code>javase.bootclasspath</code>.</li>
+        <li>Added build properties for Java EE:
+          <ol>
+            <li><code>javaee.version</code>,default <code>6</code></li>
+            <li><code>javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
+            <li><code>documented.javaee.version</code>, default <code>6</code></li>
+            <li><code>documented.javadoc.link.javaee</code>, default <code>\${javadoc.link.javaee.6}</code></li>
+          </ol>
+        </li>
+        <li>
+          Added <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#source"><![CDATA[&lt;source&gt;]]></ao:a>
+          configuration to <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html">maven-javadoc-plugin</ao:a> to build correctly in Java 11.
+        </li>
+        <li>Simplified use of <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html">maven-gpg-plugin</ao:a>:
+          <ul>
+            <li>Changed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#lockMode">lockMode</ao:a> to a fixed value "multiple"</li>
+            <li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#defaultKeyring">defaultKeyring</ao:a></li>
+            <li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#useAgent">useAgent</ao:a></li>
+            <li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#publicKeyring">publicKeyring</ao:a></li>
+            <li>Removed <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#secretKeyring">secretKeyring</ao:a></li>
+          </ul>
+        </li>
+        <li>Now using <code>--release</code> instead of <code>-bootclasspath</code> when building with <![CDATA[JDK &gt;= 9]]>.</li>
+        <li>Java updates:
+          <ol>
+            <li>Java 13 is now end-of-life</li>
+            <li>Java 14 is now current stable</li>
+            <li>Java 15 is new beta</li>
+          </ol>
+        </li>
+        <li>
+          Changed default <ao:a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html#BEJEFABE">doclint</ao:a>
+          from <code>-Xdoclint:none</code> to <code>-Xdoclint:all,-missing</code>.
+        </li>
+        <li>Updated plugin versions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.5.0"
-			datePublished="2019-10-14T03:24:30-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					To significantly reduce the size of Javadocs, using new <ao:a href="https://oss.aoapps.com/javadoc-resources/">AO Javadoc Resources</ao:a>
-					project instead of <code>data:</code> URLs.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.5.0"
+      datePublished="2019-10-14T03:24:30-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          To significantly reduce the size of Javadocs, using new <ao:a href="https://oss.aoapps.com/javadoc-resources/">AO Javadoc Resources</ao:a>
+          project instead of <code>data:</code> URLs.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.4.0"
-			datePublished="2019-10-04T20:02:31-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					<p>
-						Set delimiters for <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a>
-						to match the configuration of <ao:a href="https://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</ao:a>,
-						using <code>@{*}</code>.
-					</p>
-					<p>
-						Also enabled <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#filteringDeploymentDescriptors">filteringDeploymentDescriptors</ao:a>
-						by default.
-					</p>
-				</li>
-				<li>Java updates:
-					<ol>
-						<li>Java 12 is now end-of-life</li>
-						<li>Java 13 is now current stable</li>
-						<li>Java 14 is new beta</li>
-					</ol>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.4.0"
+      datePublished="2019-10-04T20:02:31-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          <p>
+            Set delimiters for <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</ao:a>
+            to match the configuration of <ao:a href="https://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</ao:a>,
+            using <code>@{*}</code>.
+          </p>
+          <p>
+            Also enabled <ao:a href="https://maven.apache.org/plugins/maven-war-plugin/war-mojo.html#filteringDeploymentDescriptors">filteringDeploymentDescriptors</ao:a>
+            by default.
+          </p>
+        </li>
+        <li>Java updates:
+          <ol>
+            <li>Java 12 is now end-of-life</li>
+            <li>Java 13 is now current stable</li>
+            <li>Java 14 is new beta</li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.3.1"
-			datePublished="2019-06-29T18:38:31-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Changed <code>Include-Resource</code> to <code>{maven-resources}, target/resources-filtered</code>
-					in order to not leak full build paths into <code>META-INF/MANIFEST.MF</code>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.3.1"
+      datePublished="2019-06-29T18:38:31-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Changed <code>Include-Resource</code> to <code>{maven-resources}, target/resources-filtered</code>
+          in order to not leak full build paths into <code>META-INF/MANIFEST.MF</code>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.3.0"
-			datePublished="2019-06-23T11:41:15-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
-				<li>New profile "POST-SNAPSHOT" that enables the use of
-					post-release builds as dependencies.
-					<p>
-						This profile is not active by default.
-						Activate in <code>~/.m2/settings.xml</code> to use post-release builds as dependencies:
-					</p>
-<pre><![CDATA[		&lt;profile&gt;
-			&lt;id&gt;POST-SNAPSHOT&lt;/id&gt;
-			&lt;activation&gt;
-				&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-			&lt;/activation&gt;
-			&lt;properties&gt;
-				&lt;POST-SNAPSHOT&gt;-POST-SNAPSHOT&lt;/POST-SNAPSHOT&gt;
-			&lt;/properties&gt;
-		&lt;/profile&gt;]]></pre>
-					<p>
-						This profile must not be active while performing a release.  Deactivate with:
-					</p>
-					<pre>mvn -Prelease,'!POST-SNAPSHOT' …</pre>
-					<p>
-						Post-release builds happen after a release and before a new -SNAPSHOT is
-						started.  They are used to ensure that previous releases still compile
-						against newer dependencies.
-					</p>
-					<p>
-						Furthermore, post-release builds may contain the following changes without
-						being promoted to the next -SNAPSHOT version:
-					</p>
-					<ol>
-						<li>Updated parent POM</li>
-						<li>Updated POM</li>
-						<li>Updated Java version (without any source code changes)</li>
-						<li>Updated dependency versions</li>
-						<li>Updated javadocs</li>
-						<li>Updated documentation</li>
-						<li>Updated unit tests</li>
-						<li>Deprecated methods and classes</li>
-						<li>Renamed private fields and local variables</li>
-						<li>Other changes to white-space or comments</li>
-					</ol>
-					<p>
-						Post-release builds also allow NetBeans to correctly connect projects
-						together for those who are actively developing multiple modules.
-					</p>
-					<p>
-						Those who are only using the dependency can use the regular release to
-						avoid the overhead of the daily check for updates.
-					</p>
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.3.0"
+      datePublished="2019-06-23T11:41:15-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
+        <li>New profile "POST-SNAPSHOT" that enables the use of
+          post-release builds as dependencies.
+          <p>
+            This profile is not active by default.
+            Activate in <code>~/.m2/settings.xml</code> to use post-release builds as dependencies:
+          </p>
+<pre><![CDATA[    &lt;profile&gt;
+      &lt;id&gt;POST-SNAPSHOT&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+      &lt;/activation&gt;
+      &lt;properties&gt;
+        &lt;POST-SNAPSHOT&gt;-POST-SNAPSHOT&lt;/POST-SNAPSHOT&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;]]></pre>
+          <p>
+            This profile must not be active while performing a release.  Deactivate with:
+          </p>
+          <pre>mvn -Prelease,'!POST-SNAPSHOT' …</pre>
+          <p>
+            Post-release builds happen after a release and before a new -SNAPSHOT is
+            started.  They are used to ensure that previous releases still compile
+            against newer dependencies.
+          </p>
+          <p>
+            Furthermore, post-release builds may contain the following changes without
+            being promoted to the next -SNAPSHOT version:
+          </p>
+          <ol>
+            <li>Updated parent POM</li>
+            <li>Updated POM</li>
+            <li>Updated Java version (without any source code changes)</li>
+            <li>Updated dependency versions</li>
+            <li>Updated javadocs</li>
+            <li>Updated documentation</li>
+            <li>Updated unit tests</li>
+            <li>Deprecated methods and classes</li>
+            <li>Renamed private fields and local variables</li>
+            <li>Other changes to white-space or comments</li>
+          </ol>
+          <p>
+            Post-release builds also allow NetBeans to correctly connect projects
+            together for those who are actively developing multiple modules.
+          </p>
+          <p>
+            Those who are only using the dependency can use the regular release to
+            avoid the overhead of the daily check for updates.
+          </p>
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.2.0"
-			datePublished="2019-06-19T08:29:25-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
-				<li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
-				<li>
-					No longer excluding
-					<ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
-					from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
-					Instead, projects are encouraged to use the new
-					<ao:a href="https://oss.aoapps.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.2.0"
+      datePublished="2019-06-19T08:29:25-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
+        <li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
+        <li>
+          No longer excluding
+          <ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
+          from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
+          Instead, projects are encouraged to use the new
+          <ao:a href="https://oss.aoapps.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.1.0"
-			datePublished="2019-04-18T01:44:32-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Excludes of versions-maven-plugin are not inherited.
-					Added excludes for Java EE Web API 6 where needed.
-				</li>
-				<li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.1.0"
+      datePublished="2019-04-18T01:44:32-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Excludes of versions-maven-plugin are not inherited.
+          Added excludes for Java EE Web API 6 where needed.
+        </li>
+        <li>Updated version of <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a>.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.0.1"
-			datePublished="2017-07-19T16:48:41-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Added <code>--allow-script-in-comments</code> for Javadoc in JDK 1.8.0_121+.</li>
-				<li>Updated dependencies.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.0.1"
+      datePublished="2017-07-19T16:48:41-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Added <code>--allow-script-in-comments</code> for Javadoc in JDK 1.8.0_121+.</li>
+        <li>Updated dependencies.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.0.0"
-			datePublished="2016-11-15T16:57:58-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					<p>
-						New parent POM, separate from aggregator POMs, to allow the addition of
-						modules without having to also release untouched modules within the same
-						overall project.
-					</p>
-					<p>
-						Previously, adding a module to the aggregator would
-						increment its version, which would then propagate all the way down to
-						update the parents of all modules.  Since our projects are extremely
-						modular, this forced releases where only the parent version was modified.
-					</p>
-					<p>
-						We recommend a separation of parent and aggregator <code>pom.xml</code>
-						for any multi-module Maven project where each module is released
-						independently.
-					</p>
-				</li>
-			</ul>
-		</changelog:release>
-	</core:page>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.0.0"
+      datePublished="2016-11-15T16:57:58-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          <p>
+            New parent POM, separate from aggregator POMs, to allow the addition of
+            modules without having to also release untouched modules within the same
+            overall project.
+          </p>
+          <p>
+            Previously, adding a module to the aggregator would
+            increment its version, which would then propagate all the way down to
+            update the parents of all modules.  Since our projects are extremely
+            modular, this forced releases where only the parent version was modified.
+          </p>
+          <p>
+            We recommend a separation of parent and aggregator <code>pom.xml</code>
+            for any multi-module Maven project where each module is released
+            independently.
+          </p>
+        </li>
+      </ul>
+    </changelog:release>
+  </core:page>
 </jsp:root>
