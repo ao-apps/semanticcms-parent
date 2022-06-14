@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2022-05-29T22:56:56-05:00"
+    dateModified="2022-06-13T23:54:48-05:00"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -49,6 +49,19 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         scmUrl="@{project.scm.url}"
       />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.15.2"
+      datePublished="2022-06-13T23:54:48-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/1.8.1.html">Apache Axis2 1.8.1</ao:a>.</li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
