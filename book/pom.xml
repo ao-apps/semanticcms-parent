@@ -35,15 +35,15 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     <module.name>com.semanticcms.parent.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-parent</documented.artifactId>
-    <documented.name>SemanticCMS Parent²</documented.name>
+    <documented.name>SemanticCMS Parent</documented.name>
     <documented.description>Parent POM for all SemanticCMS packages.</documented.description>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
   </properties>
 
-  <name>SemanticCMS Parent² Book</name>
+  <name>SemanticCMS Parent Book</name>
   <url>https://semanticcms.com/parent/</url>
-  <description>Documentation for SemanticCMS Parent² in SemanticCMS format.</description>
+  <description>Documentation for SemanticCMS Parent in SemanticCMS format.</description>
   <inceptionYear>2016</inceptionYear>
 
   <licenses>
