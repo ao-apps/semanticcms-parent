@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2022-11-14T15:31:04-06:00"
+    dateModified="2022-11-15T11:18:43-06:00"
    >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -51,7 +51,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>Jakarta EE updates:
             <ol>
-              <li>Added <ao:a href="https://jakarta.ee/specifications/platform/10/">Jakarta EE 10</ao:a></li>
+              <li>Added <ao:a href="https://jakarta.ee/release/10/">Jakarta EE 10</ao:a></li>
             </ol>
           </li>
         </ul>
@@ -395,12 +395,12 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <li>Java™ EE updates:
           <ol>
             <li>
-              Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
-              to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
+              Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/">Java™ EE 6</ao:a>
+              to <ao:a href="https://docs.oracle.com/javaee/7/">Java™ EE 7</ao:a>
             </li>
-            <li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/">Jakarta EE 8</ao:a></li>
-            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/">Jakarta EE 9</ao:a></li>
-            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/">Jakarta EE 9.1</ao:a></li>
+            <li>Updated apidocs URL for <ao:a href="https://jakarta.ee/release/8/">Jakarta EE 8</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/release/9/">Jakarta EE 9</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/release/9.1/">Jakarta EE 9.1</ao:a></li>
           </ol>
         </li>
         <li>Changed default Java version from 1.8 to 11</li>
@@ -943,7 +943,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <li>No longer excluding <code>org.webjars:d3js</code> and <code>org.webjars:jquery</code> from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.</li>
         <li>
           No longer excluding
-          <ao:a rel="nofollow" href="https://www.oracle.com/technetwork/java/javaee/documentation/avaee6sdku1-relnotes-326908.html">Java EE Web API 6</ao:a>
+          <ao:a rel="nofollow" href="https://docs.oracle.com/javaee/6/">Java EE Web API 6</ao:a>
           from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
           Instead, projects are encouraged to use the new
           <ao:a href="https://oss.aoapps.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
