@@ -51,7 +51,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>Jakarta EE updates:
             <ol>
-              <li>Added <ao:a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</ao:a></li>
+              <li>Added <ao:a href="https://jakarta.ee/specifications/platform/10/">Jakarta EE 10</ao:a></li>
             </ol>
           </li>
         </ul>
@@ -398,9 +398,9 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
               Default version changed from <ao:a href="https://docs.oracle.com/javaee/6/api/">Java™ EE 6</ao:a>
               to <ao:a href="https://docs.oracle.com/javaee/7/api/">Java™ EE 7</ao:a>
             </li>
-            <li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</ao:a></li>
-            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/apidocs/">Jakarta EE 9</ao:a></li>
-            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">Jakarta EE 9.1</ao:a></li>
+            <li>Updated apidocs URL for <ao:a href="https://jakarta.ee/specifications/platform/8/">Jakarta EE 8</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9/">Jakarta EE 9</ao:a></li>
+            <li>Added <ao:a href="https://jakarta.ee/specifications/platform/9.1/">Jakarta EE 9.1</ao:a></li>
           </ol>
         </li>
         <li>Changed default Java version from 1.8 to 11</li>
