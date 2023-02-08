@@ -33,6 +33,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
   <packaging>pom</packaging>
 
   <properties>
+    <project.build.outputTimestamp>2023-02-08T21:06:04Z</project.build.outputTimestamp>
     <google.analytics.trackingId>UA-86871646-2</google.analytics.trackingId>
     <!-- com.semanticcms is on original Sonatype Nexus Repository Manager -->
     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
