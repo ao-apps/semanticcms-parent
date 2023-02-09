@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-02-09T18:15:11Z"
+    dateModified="2023-02-09T20:00:36Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -52,6 +52,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
           <li>Enabled <ao:a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">Reproducible Builds</ao:a>:
             <ol>
               <li>Removed <code>Implementation-Build-Date</code> from all manifest.</li>
+              <li>
+                Set <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#notimestamp"><code>notimestamp</code></ao:a>
+                in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+              </li>
             </ol>
           </li>
         </ul>
