@@ -25,15 +25,15 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.20.2-POST-SNAPSHOT</version>
+    <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.21.0-SNAPSHOT</version>
     <relativePath>../../oss/parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.16.2-POST-SNAPSHOT</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.17.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-08T21:06:04Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-02-09T19:36:23Z</project.build.outputTimestamp>
     <google.analytics.trackingId>UA-86871646-2</google.analytics.trackingId>
     <!-- com.semanticcms is on original Sonatype Nexus Repository Manager -->
     <nexusUrl>https://oss.sonatype.org/</nexusUrl>

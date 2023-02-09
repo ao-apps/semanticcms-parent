@@ -25,14 +25,14 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.16.2-POST-SNAPSHOT</version>
+    <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.17.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.16.2-POST-SNAPSHOT</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.17.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-08T21:06:04Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-02-09T19:36:32Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.parent.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-parent</documented.artifactId>

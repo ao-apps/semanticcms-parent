@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-02-07T11:19:31-06:00"
+    dateModified="2023-02-09T18:15:11Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,7 +47,15 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>Enabled <ao:a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">Reproducible Builds</ao:a>:
+            <ol>
+              <li>Removed <code>Implementation-Build-Date</code> from all manifest.</li>
+            </ol>
+          </li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
