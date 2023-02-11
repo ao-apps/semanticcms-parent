@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-02-09T23:05:58Z"
+    dateModified="2023-02-11T18:14:10Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,35 +47,44 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>Enabled <ao:a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">Reproducible Builds</ao:a>:
-            <ol>
-              <li>Removed <code>Implementation-Build-Date</code> from all manifest.</li>
-              <li>
-                Set <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#notimestamp"><code>notimestamp</code></ao:a>
-                in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
-              </li>
-              <li>
-                <code>build.currentYear</code> property is now extracted from <code>project.build.outputTimestamp</code>.
-                As a result, <ao:a href="https://www.mojohaus.org/buildnumber-maven-plugin/">buildnumber-maven-plugin</ao:a> is no longer part of the build.
-              </li>
-              <li>
-                Upgraded <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>
-                from 3.0.1 to 3.4.1.  Due to <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">MJAVADOC-682</ao:a>
-                not yet resolved, builds will revert to version 3.0.1 under a new "reactor" profile.
-              </li>
-              <li>Changed Jenkins builds from Java 11 to Java 17.</li>
-              <li>
-                Jenkins builds now use <code>.m2/repository-jdk-\${jdk}</code> for all Java versions.
-                Previously, builds for <code>\${deployJdk}</code> used <code>.m2/repository</code>.
-                This change makes it unnecessary to rename local repositories when changing <code>\${deployJdk}</code>.
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.17.0"
+      datePublished="2023-02-11T18:14:10Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Enabled <ao:a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">Reproducible Builds</ao:a>:
+          <ol>
+            <li>Removed <code>Implementation-Build-Date</code> from all manifest.</li>
+            <li>
+              Set <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html#notimestamp"><code>notimestamp</code></ao:a>
+              in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+            </li>
+            <li>
+              <code>build.currentYear</code> property is now extracted from <code>project.build.outputTimestamp</code>.
+              As a result, <ao:a href="https://www.mojohaus.org/buildnumber-maven-plugin/">buildnumber-maven-plugin</ao:a> is no longer part of the build.
+            </li>
+            <li>
+              Upgraded <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>
+              from 3.0.1 to 3.4.1.  Due to <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">MJAVADOC-682</ao:a>
+              not yet resolved, builds will revert to version 3.0.1 under a new "reactor" profile.
+            </li>
+            <li>Changed Jenkins builds from Java 11 to Java 17.</li>
+            <li>
+              Jenkins builds now use <code>.m2/repository-jdk-\${jdk}</code> for all Java versions.
+              Previously, builds for <code>\${deployJdk}</code> used <code>.m2/repository</code>.
+              This change makes it unnecessary to rename local repositories when changing <code>\${deployJdk}</code>.
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
