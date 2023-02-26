@@ -19,7 +19,7 @@ Parent POM for all [SemanticCMS](https://github.com/ao-apps/semanticcms) package
 ## Project Links
 * [Project Home](https://semanticcms.com/parent/)
 * [Changelog](https://semanticcms.com/parent/changelog)
-* [Maven Central Repository](https://search.maven.org/artifact/com.semanticcms/semanticcms-parent)
+* [Maven Central Repository](https://central.sonatype.com/search?namespace=com.semanticcms&q=a%3Asemanticcms-parent)
 * [GitHub](https://github.com/ao-apps/semanticcms-parent)
 
 ## Contact Us
