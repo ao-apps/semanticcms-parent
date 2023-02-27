@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-02-26T14:03:56Z"
+    dateModified="2023-02-27T21:03:01Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,20 +47,29 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>Updated plugin versions.</li>
-          <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-          <li>
-            New build property <code>\${build.versionNoPostSnapshot}</code> that contains the project version number
-            without any trailing <code>-POST-SNAPSHOT</code>.  For example, version <samp>1.2.3-SNAPSHOT</samp> remains
-            <samp>1.2.3-SNAPSHOT</samp> while both <samp>1.2.3</samp> and <samp>1.2.3-POST-SNAPSHOT</samp> become
-            <samp>1.2.3</samp>.
-          </li>
-          <li>Updated links from <ao:a href="https://search.maven.org/" /> to <ao:a href="https://central.sonatype.com/" /></li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.17.1"
+      datePublished="2023-02-27T21:03:01Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated plugin versions.</li>
+        <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+        <li>
+          New build property <code>\${build.versionNoPostSnapshot}</code> that contains the project version number
+          without any trailing <code>-POST-SNAPSHOT</code>.  For example, version <samp>1.2.3-SNAPSHOT</samp> remains
+          <samp>1.2.3-SNAPSHOT</samp> while both <samp>1.2.3</samp> and <samp>1.2.3-POST-SNAPSHOT</samp> become
+          <samp>1.2.3</samp>.
+        </li>
+        <li>Updated links from <ao:a href="https://search.maven.org/" /> to <ao:a href="https://central.sonatype.com/" /></li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
@@ -572,6 +581,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         </li>
       </ul>
     </changelog:release>
+
     <changelog:release
       projectName="@{documented.name}"
       version="1.11.0"
