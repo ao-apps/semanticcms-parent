@@ -28,11 +28,11 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>1.17.1<!-- -POST-SNAPSHOT --></version>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.17.1</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent-book</artifactId><version>1.17.1-POST-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-28T01:28:17Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-02-28T01:28:58Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.parent.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-parent</documented.artifactId>
@@ -76,7 +76,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     <connection>scm:git:git://github.com/ao-apps/semanticcms-parent.git</connection>
     <developerConnection>scm:git:git@github.com:ao-apps/semanticcms-parent.git</developerConnection>
     <url>https://github.com/ao-apps/semanticcms-parent</url>
-    <tag>semanticcms-parent-book-1.17.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
