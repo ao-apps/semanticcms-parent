@@ -37,10 +37,6 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     <google.analytics.trackingId>UA-86871646-2</google.analytics.trackingId>
     <!-- com.semanticcms is on original Sonatype Nexus Repository Manager -->
     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-    <!-- SonarQube -->
-    <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-    <sonar.organization>ao-apps</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
 
   <name>SemanticCMS Parent</name>
