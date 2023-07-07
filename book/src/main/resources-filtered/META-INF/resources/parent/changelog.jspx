@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-04-15T12:20:37Z"
+    dateModified="2023-07-07T23:04:48Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -51,6 +51,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>Updated default project settings for <ao:a href="https://github.com/apache/netbeans/releases/tag/17">NetBeans 17</ao:a>.</li>
           <li>Updated plugin versions.</li>
+          <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
         </ul>
       </changelog:release>
     </c:if>
