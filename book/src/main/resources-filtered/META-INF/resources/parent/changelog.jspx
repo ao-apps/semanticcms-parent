@@ -47,7 +47,11 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>Updated plugin versions.</li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
