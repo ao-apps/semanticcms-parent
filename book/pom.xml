@@ -32,7 +32,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
   <packaging>bundle</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-08T21:06:04Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-08-13T18:12:08Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.parent.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-parent</documented.artifactId>
