@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-08-16T21:22:51Z"
+    dateModified="2023-08-17T20:46:40Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -54,6 +54,31 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             via <ao:a href="https://github.com/git-commit-id/git-commit-id-maven-plugin">git-commit-id-maven-plugin</ao:a>.
           </li>
           <li>Builds now require Java 11 or newer.</li>
+          <li>
+            Builds now require Maven 3.9.0 or newer for
+            <ao:a href="https://maven.apache.org/guides/introduction/introduction-to-profiles.html">profile activation by packaging</ao:a>.
+          </li>
+          <li>
+            <p>
+              Using packaging=jar instead of packaging=bundle for all jar projects.
+              OSGI manifest entries are still added, however, as documented at
+              <ao:a href="https://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html#_adding_osgi_metadata_to_existing_projects_without_changing_the_packaging_type">
+                Adding OSGi metadata to existing projects without changing the packaging type
+              </ao:a>.
+              This has the side effect that projects that were previously packaging=jar will now have
+              OSGI manifest entries added.  None of our projects were previously of the jar packaging.
+            </p>
+            <p>
+              This change is required since <ao:a href="https://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html">maven-bundle-plugin</ao:a>
+              has been <ao:a href="https://github.com/FasterXML/jackson-databind/issues/3680">adding entries with a constant and hard-coded timestamp of 1980-02-01</ao:a>.
+            </p>
+            <p>
+              These constant timestamps are incompatible with the automatic lastModified parameters added by
+              <ao:a href="https://oss.aoapps.com/servlet-last-modified/">AO Servlet Last Modified</ao:a> when the resource
+              is contained in a JAR file within <code>WEB-INF/lib</code>.  This has resulted in browsers using
+              out-of-date cached content.
+            </p>
+          </li>
         </ul>
       </changelog:release>
     </c:if>
