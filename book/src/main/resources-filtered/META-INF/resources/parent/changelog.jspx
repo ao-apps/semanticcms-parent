@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-03T19:05:21Z"
+    dateModified="2023-09-03T23:27:09Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -61,6 +61,14 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/">Maven Release Plugin</ao:a> during
             the last release.  This caused all child projects to incorrecly use the time that the parent was released, not that of
             the project's last commit as intended.
+          </li>
+          <li>
+            Only doing the second filtering pass of <code>src/main/resources-filtered</code> for packaging type "bundle",
+            which none of our projects currently use.  This is a workaround for
+            <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/bundle-mojo.html">bundle:bundle</ao:a>
+            not including filtered resources directly.  This also results in a cleaner and more reproducible
+            <code>MANIFEST.MF</code>, with <code>Include-Resource</code> no longer including
+            <code>\${project.build.directory}/resources-filtered</code>.
           </li>
         </ul>
       </changelog:release>
