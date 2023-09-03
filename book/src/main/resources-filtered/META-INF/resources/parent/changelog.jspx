@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-08-19T23:32:39Z"
+    dateModified="2023-09-03T19:05:21Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,7 +47,23 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>
+            Avoiding second invocation of
+            <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/manifest-mojo.html">bundle:manifest</ao:a>
+            during Jenkins "Deploy" stage.  The second invocation was polluting the <code>MANIFEST.MF</code> with an
+            extra entry <code>Originally-Created-By: Apache Maven Bundle Plugin 5.1.9</code>.
+          </li>
+          <li>
+            Reproducible build <code>\${project.build.outputTimestamp}</code> set back to <code>\${git.commit.time}</code>.
+            The property was replaced with a fixed timestamp by
+            <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/">Maven Release Plugin</ao:a> during
+            the last release.  This caused all child projects to incorrecly use the time that the parent was released, not that of
+            the project's last commit as intended.
+          </li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
