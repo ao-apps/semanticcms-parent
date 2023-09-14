@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-13T03:39:12Z"
+    dateModified="2023-09-13T04:33:34Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -84,13 +84,22 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
           </li>
           <li>
             <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> are now run on every build.
-            These optimized reproducible artifacts accomplish the following:
             <ol>
-              <li>Fine-grained timestamp tracking of AAR/JAR/WAR/ZIP artifact entries</li>
-              <li>Reduced number of distinct build artifacts</li>
               <li>
-                Correct maintenance and propagation of last-modified time for caching layers, clients, and related
-                tools such as sitemap generators
+                Patches timestamps from the last build for entries that are not modified.
+                These optimized reproducible artifacts accomplish the following:
+                <ol type="a">
+                  <li>Fine-grained timestamp tracking of AAR/JAR/WAR/ZIP artifact entries</li>
+                  <li>Reduced number of distinct build artifacts</li>
+                  <li>
+                    Correct maintenance and propagation of last-modified time for caching layers, clients, and related
+                    tools such as sitemap generators
+                  </li>
+                </ol>
+              </li>
+              <li>
+                SEO filtering of Javadocs, including canonical meta tags, robots noindex, rel="nofollow" links, and
+                XML sitemaps.
               </li>
             </ol>
           </li>
