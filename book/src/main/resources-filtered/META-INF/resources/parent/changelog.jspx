@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-17T04:26:17Z"
+    dateModified="2023-09-17T09:32:59Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,112 +47,121 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>
-            Avoiding second invocation of
-            <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/manifest-mojo.html">bundle:manifest</ao:a>
-            during Jenkins "Deploy" stage.  The second invocation was polluting the <code>MANIFEST.MF</code> with an
-            extra entry <code>Originally-Created-By: Apache Maven Bundle Plugin 5.1.9</code>.
-          </li>
-          <li>
-            Reproducible build <code>\${project.build.outputTimestamp}</code> set back to <code>\${git.commit.time}</code>.
-            The property was replaced with a fixed timestamp by
-            <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/">Maven Release Plugin</ao:a> during
-            the last release.  This caused all child projects to incorrectly use the time that the parent was released, not that of
-            the project's last commit as intended.
-          </li>
-          <li>
-            Only doing the second filtering pass of <code>src/main/resources-filtered</code> for packaging type "bundle",
-            which none of our projects currently use.  This is a workaround for
-            <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/bundle-mojo.html">bundle:bundle</ao:a>
-            not including filtered resources directly.  This also results in a cleaner and more reproducible
-            <code>MANIFEST.MF</code>, with <code>Include-Resource</code> no longer including
-            <code>\${project.build.directory}/resources-filtered</code>.
-          </li>
-          <li>Removed unused build property <code>\${javase.bootclasspath}</code>.</li>
-          <li>Defined all versions as Maven properties.</li>
-          <li>
-            <p>
-              Enabled <ao:a href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">jacoco-maven-plugin</ao:a> in
-              <code><![CDATA[&lt;reporting&gt;]]></code> (generated site reports).
-            </p>
-            <p>
-              Please note that <code>mvn site</code> is currently broken due to <ao:a href="https://issues.apache.org/jira/browse/MSITE-973">MSITE-973</ao:a>.
-              We expect this problem to be resolved when <ao:a href="https://github.com/apache/maven-site-plugin/tags">maven-site-plugin-4.0.0-M10</ao:a> is released.
-            </p>
-          </li>
-          <li>
-            <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> are now run on every build.
-            <ol>
-              <li>
-                Patches timestamps from the last build for entries that are not modified.
-                These optimized reproducible artifacts accomplish the following:
-                <ol type="a">
-                  <li>Fine-grained timestamp tracking of AAR/JAR/WAR/ZIP artifact entries</li>
-                  <li>Reduced number of distinct build artifacts</li>
-                  <li>
-                    Correct maintenance and propagation of last-modified time for caching layers, clients, and related
-                    tools such as sitemap generators
-                  </li>
-                </ol>
-              </li>
-              <li>
-                SEO filtering of Javadocs, including canonical meta tags, robots noindex, rel="nofollow" links, and
-                XML sitemaps.
-              </li>
-            </ol>
-          </li>
-          <li>
-            Set <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoreNonCompile"><![CDATA[&lt;ignoreNonCompile&gt;true&lt;/ignoreNonCompile&gt;]]></ao:a>
-            as the default for all projects.
-          </li>
-          <li>
-            Set <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
-            as the default for all projects.
-          </li>
-          <li>
-            <p>
-              <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/prepare-mojo.html">release:prepare</ao:a>
-              has no way to avoid it replacing <code>\${git.commit.time}</code> with a fixed ISO8601 timestamp.
-              Having a fixed timestamp has some arguable benefits regarding build reproducibility, so we're not going
-              to fight this.
-            </p>
-            <p>
-              Releases now use fixed ISO8601 timestamps while snapshots continue to use <code>\${git.commit.time}</code>.
-              This means that all child projects must define their own <code>\${project.build.outputTimestamp}</code>
-              property in order to not inherit the timestamp of the parent during releases.
-            </p>
-            <p>
-              Since releases no longer depend on <code>\${git.commit.time}</code>, the
-              <ao:a href="https://github.com/git-commit-id/git-commit-id-maven-plugin">git-commit-id-maven-plugin</ao:a>
-              goals are disabled under the <code>release</code> profile.
-            </p>
-            <p>
-              We also added an enforcer rule to ensure <code>\${project.build.outputTimestamp}</code> is correctly set
-              back to <code>\${git.commit.time}</code> after a release.
-            </p>
-          </li>
-          <li>OSGi improvements:
-            <ol>
-              <li>
-                Implementation-Version now uses correct OSGi version format.
-                Previously was using <code>\${project.version}</code>, but now uses <code>\${parsedVersion.osgiVersion}</code> from
-                <ao:a href="http://www.mojohaus.org/build-helper-maven-plugin/parse-version-mojo.html">build-helper:parse-version</ao:a>.
-              </li>
-              <li>
-                Added <code>_nouses</code> to avoid
-                <ao:a href="https://www.eclipse.org/lists/stp-dev/msg01624.html">NP-hard time complexity in "uses" resolvers</ao:a>.
-              </li>
-            </ol>
-          </li>
-          <li>
-            New <code>\${devMode}</code> property that will be <code>true</code> only when the "development" profile
-            is active.  "publish" profile may not be activated at the same time as "development" profile.
-          </li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.19.1"
+      datePublished="2023-09-17T09:32:59Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Avoiding second invocation of
+          <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/manifest-mojo.html">bundle:manifest</ao:a>
+          during Jenkins "Deploy" stage.  The second invocation was polluting the <code>MANIFEST.MF</code> with an
+          extra entry <code>Originally-Created-By: Apache Maven Bundle Plugin 5.1.9</code>.
+        </li>
+        <li>
+          Reproducible build <code>\${project.build.outputTimestamp}</code> set back to <code>\${git.commit.time}</code>.
+          The property was replaced with a fixed timestamp by
+          <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/">Maven Release Plugin</ao:a> during
+          the last release.  This caused all child projects to incorrectly use the time that the parent was released, not that of
+          the project's last commit as intended.
+        </li>
+        <li>
+          Only doing the second filtering pass of <code>src/main/resources-filtered</code> for packaging type "bundle",
+          which none of our projects currently use.  This is a workaround for
+          <ao:a href="https://felix.apache.org/documentation/_attachments/components/bundle-plugin/bundle-mojo.html">bundle:bundle</ao:a>
+          not including filtered resources directly.  This also results in a cleaner and more reproducible
+          <code>MANIFEST.MF</code>, with <code>Include-Resource</code> no longer including
+          <code>\${project.build.directory}/resources-filtered</code>.
+        </li>
+        <li>Removed unused build property <code>\${javase.bootclasspath}</code>.</li>
+        <li>Defined all versions as Maven properties.</li>
+        <li>
+          <p>
+            Enabled <ao:a href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">jacoco-maven-plugin</ao:a> in
+            <code><![CDATA[&lt;reporting&gt;]]></code> (generated site reports).
+          </p>
+          <p>
+            Please note that <code>mvn site</code> is currently broken due to <ao:a href="https://issues.apache.org/jira/browse/MSITE-973">MSITE-973</ao:a>.
+            We expect this problem to be resolved when <ao:a href="https://github.com/apache/maven-site-plugin/tags">maven-site-plugin-4.0.0-M10</ao:a> is released.
+          </p>
+        </li>
+        <li>
+          <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> are now run on every build.
+          <ol>
+            <li>
+              Patches timestamps from the last build for entries that are not modified.
+              These optimized reproducible artifacts accomplish the following:
+              <ol type="a">
+                <li>Fine-grained timestamp tracking of AAR/JAR/WAR/ZIP artifact entries</li>
+                <li>Reduced number of distinct build artifacts</li>
+                <li>
+                  Correct maintenance and propagation of last-modified time for caching layers, clients, and related
+                  tools such as sitemap generators
+                </li>
+              </ol>
+            </li>
+            <li>
+              SEO filtering of Javadocs, including canonical meta tags, robots noindex, rel="nofollow" links, and
+              XML sitemaps.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Set <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoreNonCompile"><![CDATA[&lt;ignoreNonCompile&gt;true&lt;/ignoreNonCompile&gt;]]></ao:a>
+          as the default for all projects.
+        </li>
+        <li>
+          Set <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
+          as the default for all projects.
+        </li>
+        <li>
+          <p>
+            <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/prepare-mojo.html">release:prepare</ao:a>
+            has no way to avoid it replacing <code>\${git.commit.time}</code> with a fixed ISO8601 timestamp.
+            Having a fixed timestamp has some arguable benefits regarding build reproducibility, so we're not going
+            to fight this.
+          </p>
+          <p>
+            Releases now use fixed ISO8601 timestamps while snapshots continue to use <code>\${git.commit.time}</code>.
+            This means that all child projects must define their own <code>\${project.build.outputTimestamp}</code>
+            property in order to not inherit the timestamp of the parent during releases.
+          </p>
+          <p>
+            Since releases no longer depend on <code>\${git.commit.time}</code>, the
+            <ao:a href="https://github.com/git-commit-id/git-commit-id-maven-plugin">git-commit-id-maven-plugin</ao:a>
+            goals are disabled under the <code>release</code> profile.
+          </p>
+          <p>
+            We also added an enforcer rule to ensure <code>\${project.build.outputTimestamp}</code> is correctly set
+            back to <code>\${git.commit.time}</code> after a release.
+          </p>
+        </li>
+        <li>OSGi improvements:
+          <ol>
+            <li>
+              Implementation-Version now uses correct OSGi version format.
+              Previously was using <code>\${project.version}</code>, but now uses <code>\${parsedVersion.osgiVersion}</code> from
+              <ao:a href="http://www.mojohaus.org/build-helper-maven-plugin/parse-version-mojo.html">build-helper:parse-version</ao:a>.
+            </li>
+            <li>
+              Added <code>_nouses</code> to avoid
+              <ao:a href="https://www.eclipse.org/lists/stp-dev/msg01624.html">NP-hard time complexity in "uses" resolvers</ao:a>.
+            </li>
+          </ol>
+        </li>
+        <li>
+          New <code>\${devMode}</code> property that will be <code>true</code> only when the "development" profile
+          is active.  "publish" profile may not be activated at the same time as "development" profile.
+        </li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
