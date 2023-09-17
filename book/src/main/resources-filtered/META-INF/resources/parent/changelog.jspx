@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-17T03:20:30Z"
+    dateModified="2023-09-17T03:56:10Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -133,10 +133,18 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
               back to <code>\${git.commit.time}</code> after a release.
             </p>
           </li>
-          <li>
-            OSGi Implementation-Version now uses correct OSGi version format.
-            Previously was using <code>\${project.version}</code>, but now uses <code>\${parsedVersion.osgiVersion}</code> from
-            <ao:a href="http://www.mojohaus.org/build-helper-maven-plugin/parse-version-mojo.html">build-helper:parse-version</ao:a>.
+          <li>OSGi improvements:
+            <ol>
+              <li>
+                Implementation-Version now uses correct OSGi version format.
+                Previously was using <code>\${project.version}</code>, but now uses <code>\${parsedVersion.osgiVersion}</code> from
+                <ao:a href="http://www.mojohaus.org/build-helper-maven-plugin/parse-version-mojo.html">build-helper:parse-version</ao:a>.
+              </li>
+              <li>
+                Added <code>_nouses</code> to avoid
+                <ao:a href="https://www.eclipse.org/lists/stp-dev/msg01624.html">NP-hard time complexity in "uses" resolvers</ao:a>.
+              </li>
+            </ol>
           </li>
         </ul>
       </changelog:release>
