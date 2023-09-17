@@ -38,6 +38,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
     dateModified="2023-09-17T09:32:59Z"
+    allowRobots="false"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
