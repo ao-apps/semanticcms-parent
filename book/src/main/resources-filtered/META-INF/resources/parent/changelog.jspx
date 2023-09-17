@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-15T05:30:40Z"
+    dateModified="2023-09-16T22:26:57Z"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -59,7 +59,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             Reproducible build <code>\${project.build.outputTimestamp}</code> set back to <code>\${git.commit.time}</code>.
             The property was replaced with a fixed timestamp by
             <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/">Maven Release Plugin</ao:a> during
-            the last release.  This caused all child projects to incorrecly use the time that the parent was released, not that of
+            the last release.  This caused all child projects to incorrectly use the time that the parent was released, not that of
             the project's last commit as intended.
           </li>
           <li>
@@ -110,6 +110,28 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
           <li>
             Set <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
             as the default for all projects.
+          </li>
+          <li>
+            <p>
+              <ao:a href="https://maven.apache.org/maven-release/maven-release-plugin/prepare-mojo.html">release:prepare</ao:a>
+              has no way to avoid it replacing <code>\${git.commit.time}</code> with a fixed ISO8601 timestamp.
+              Having a fixed timestamp has some arguable benefits regarding build reproducibility, so we're not going
+              to fight this.
+            </p>
+            <p>
+              Releases now use fixed ISO8601 timestamps while snapshots continue to use <code>\${git.commit.time}</code>.
+              This means that all child projects must define their own <code>\${project.build.outputTimestamp}</code>
+              property in order to not inherit the timestamp of the parent during releases.
+            </p>
+            <p>
+              Since releases no longer depend on <code>\${git.commit.time}</code>, the
+              <ao:a href="https://github.com/git-commit-id/git-commit-id-maven-plugin">git-commit-id-maven-plugin</ao:a>
+              goals are disabled under the <code>release</code> profile.
+            </p>
+            <p>
+              We also added an enforcer rule to ensure <code>\${project.build.outputTimestamp}</code> is correctly set
+              back to <code>\${git.commit.time}</code> after a release.
+            </p>
           </li>
         </ul>
       </changelog:release>
