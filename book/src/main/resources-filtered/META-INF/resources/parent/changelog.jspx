@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-18T02:34:28Z"
+    dateModified="2023-09-18T22:07:02Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.19.1" />
@@ -63,6 +63,20 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             and <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#windowtitle">windowtitle</ao:a>.
           </li>
           <li>Added more robots <code>noindex, nofollow</code> to javadocs.</li>
+          <li>
+            <p>
+              New property <code>\${subproject.subpath}</code> that is the path to the sub-project.
+              This should be empty for the top-level project or the path (ending in slash) to append to <code>\${project.url}</code>.
+            </p>
+            <p>
+              One important use is the offsetting of the generated Javadoc <code>apidocs/</code> URL.
+              This is because others may publish our sub-project API docs that we do not publish directly (such as books).
+              When published, we do not want conflicting canonical URLs.
+            </p>
+            <p>
+              Sub-projects that both share the same <code>\${project.url}</code> and generate Javadocs must override this value.
+            </p>
+          </li>
         </ul>
       </changelog:release>
     </c:if>
