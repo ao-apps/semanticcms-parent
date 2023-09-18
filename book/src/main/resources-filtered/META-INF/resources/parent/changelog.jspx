@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-18T01:27:39Z"
+    dateModified="2023-09-18T01:48:33Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.19.1" />
@@ -57,7 +57,9 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>
             Stripping any <code>-POST-SNAPSHOT</code> from versions used in Javadoc
-            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#doctitle">doctitle</ao:a>
+            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#doctitle">doctitle</ao:a>,
+            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#header">header</ao:a>,
+            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#packagesheader">packagesheader</ao:a>,
             and <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#windowtitle">windowtitle</ao:a>.
           </li>
         </ul>
