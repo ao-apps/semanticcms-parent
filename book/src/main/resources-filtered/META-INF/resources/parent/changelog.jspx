@@ -90,7 +90,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             <ao:a href="https://analytics.google.com/">Google Analytics</ao:a> tracking code is no longer added using
             the <code><![CDATA[&lt;bottom&gt;]]></code> section in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
             Instead, the tracking code is added by the build of the website publishing the API docs using the new
-            <core:link book="/ant-tasks" page="/index.jspx" /> project.  Importantly, the tracking code is not longer
+            <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> project.  Importantly, the tracking code is not longer
             included in Javadocs released to <ao:a href="https://central.sonatype.com/">Maven Central</ao:a>.
           </li>
         </ul>
