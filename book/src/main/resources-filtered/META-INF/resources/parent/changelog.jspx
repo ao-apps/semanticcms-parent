@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-21T16:45:26Z"
+    dateModified="2023-09-22T19:47:54Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.19.1" />
@@ -92,6 +92,12 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             Instead, the tracking code is added by the build of the website publishing the API docs using the new
             <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> project.  Importantly, the tracking code is not longer
             included in Javadocs released to <ao:a href="https://central.sonatype.com/">Maven Central</ao:a>.
+          </li>
+          <li>
+            GPG signing may be skipped with new profile activated by presence of <code>profile.d/maven.gpg.skip</code>.
+            When active, the <code>maven.deploy.skip</code>, <code>maven.install.skip</code>, and
+            <code>skipNexusStagingDeployMojo</code> profiles must also be active.  This is primarily used for projects
+            that only run directly in NetBeans.
           </li>
         </ul>
       </changelog:release>
