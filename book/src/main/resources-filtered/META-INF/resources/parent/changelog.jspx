@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-22T19:47:54Z"
+    dateModified="2023-09-23T05:45:40Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.19.1" />
@@ -78,11 +78,6 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             </p>
           </li>
           <li>
-            Per <ao:a href="https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources">Central Repository Requirements</ao:a>,
-            all projects must deploy javadoc classifier when have any <code>*.java</code> file other than
-            <code>module-info.java</code>.
-          </li>
-          <li>
             Build steps selection is much more based on properties, where the phase is set to "none" to disable.
             Although not 100%, this is a major step in this direction.
           </li>
@@ -98,6 +93,12 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             When active, the <code>maven.deploy.skip</code>, <code>maven.install.skip</code>, and
             <code>skipNexusStagingDeployMojo</code> profiles must also be active.  This is primarily used for projects
             that only run directly in NetBeans.
+          </li>
+          <li>
+            To fully satisfy <ao:a href="https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources">Central Repository Requirements</ao:a>,
+            all projects must deploy javadoc classifier when have any <code>*.java</code> file, even if only a <code>module-info.java</code>.
+            Projects that have no public API now generate a placeholder javadoc artifact, with the <code>index.html</code>
+            describing the reason why Javadocs are not present.  The generated artifacts also contain an empty <code>element-list</code>.
           </li>
         </ul>
       </changelog:release>
