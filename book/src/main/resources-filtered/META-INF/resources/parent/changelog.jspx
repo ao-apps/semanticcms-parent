@@ -37,10 +37,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-23T05:45:40Z"
+    dateModified="2023-09-23T20:01:21Z"
     allowRobots="false"
   >
-    <c:set var="latestRelease" value="1.19.1" />
+    <c:set var="latestRelease" value="1.20.0" />
     <c:if test="${
       fn:endsWith('@{project.version}', '-SNAPSHOT')
       and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')
@@ -53,56 +53,66 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>
-            Stripping any <code>-POST-SNAPSHOT</code> from versions used in Javadoc
-            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#doctitle">doctitle</ao:a>,
-            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#header">header</ao:a>,
-            <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#packagesheader">packagesheader</ao:a>,
-            and <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#windowtitle">windowtitle</ao:a>.
-          </li>
-          <li>Added more robots <code>noindex, nofollow</code> to javadocs.</li>
-          <li>
-            <p>
-              New property <code>\${subproject.subpath}</code> that is the path to the sub-project.
-              This should be empty for the top-level project or the path (ending in slash) to append to <code>\${project.url}</code>.
-            </p>
-            <p>
-              One important use is the offsetting of the generated Javadoc <code>apidocs/</code> URL.
-              This is because others may publish our sub-project API docs that we do not publish directly (such as books).
-              When published, we do not want conflicting canonical URLs.
-            </p>
-            <p>
-              Sub-projects that both share the same <code>\${project.url}</code> and generate Javadocs must override this value.
-            </p>
-          </li>
-          <li>
-            Build steps selection is much more based on properties, where the phase is set to "none" to disable.
-            Although not 100%, this is a major step in this direction.
-          </li>
-          <li>
-            <ao:a href="https://analytics.google.com/">Google Analytics</ao:a> tracking code is no longer added using
-            the <code><![CDATA[&lt;bottom&gt;]]></code> section in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
-            Instead, the tracking code is added by the build of the website publishing the API docs using the new
-            <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> project.  Importantly, the tracking code is not longer
-            included in Javadocs released to <ao:a href="https://central.sonatype.com/">Maven Central</ao:a>.
-          </li>
-          <li>
-            GPG signing may be skipped with new profile activated by presence of <code>profile.d/maven.gpg.skip</code>.
-            When active, the <code>maven.deploy.skip</code>, <code>maven.install.skip</code>, and
-            <code>skipNexusStagingDeployMojo</code> profiles must also be active.  This is primarily used for projects
-            that only run directly in NetBeans.
-          </li>
-          <li>
-            To fully satisfy <ao:a href="https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources">Central Repository Requirements</ao:a>,
-            all projects must deploy javadoc classifier when have any <code>*.java</code> file, even if only a <code>module-info.java</code>.
-            Projects that have no public API now generate a placeholder javadoc artifact, with the <code>index.html</code>
-            describing the reason why Javadocs are not present.  The generated artifacts also contain an empty <code>element-list</code>.
-          </li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.20.0"
+      datePublished="2023-09-23T20:01:21Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+      newsAllowRobots="true"
+    >
+      <ul>
+        <li>
+          Stripping any <code>-POST-SNAPSHOT</code> from versions used in Javadoc
+          <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#doctitle">doctitle</ao:a>,
+          <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#header">header</ao:a>,
+          <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#packagesheader">packagesheader</ao:a>,
+          and <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html#windowtitle">windowtitle</ao:a>.
+        </li>
+        <li>Added more robots <code>noindex, nofollow</code> to javadocs.</li>
+        <li>
+          <p>
+            New property <code>\${subproject.subpath}</code> that is the path to the sub-project.
+            This should be empty for the top-level project or the path (ending in slash) to append to <code>\${project.url}</code>.
+          </p>
+          <p>
+            One important use is the offsetting of the generated Javadoc <code>apidocs/</code> URL.
+            This is because others may publish our sub-project API docs that we do not publish directly (such as books).
+            When published, we do not want conflicting canonical URLs.
+          </p>
+          <p>
+            Sub-projects that both share the same <code>\${project.url}</code> and generate Javadocs must override this value.
+          </p>
+        </li>
+        <li>
+          Build steps selection is much more based on properties, where the phase is set to "none" to disable.
+          Although not 100%, this is a major step in this direction.
+        </li>
+        <li>
+          <ao:a href="https://analytics.google.com/">Google Analytics</ao:a> tracking code is no longer added using
+          the <code><![CDATA[&lt;bottom&gt;]]></code> section in <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>.
+          Instead, the tracking code is added by the build of the website publishing the API docs using the new
+          <ao:a href="https://oss.aoapps.com/ant-tasks/">AO Ant Tasks</ao:a> project.  Importantly, the tracking code is not longer
+          included in Javadocs released to <ao:a href="https://central.sonatype.com/">Maven Central</ao:a>.
+        </li>
+        <li>
+          GPG signing may be skipped with new profile activated by presence of <code>profile.d/maven.gpg.skip</code>.
+          When active, the <code>maven.deploy.skip</code>, <code>maven.install.skip</code>, and
+          <code>skipNexusStagingDeployMojo</code> profiles must also be active.  This is primarily used for projects
+          that only run directly in NetBeans.
+        </li>
+        <li>
+          To fully satisfy <ao:a href="https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources">Central Repository Requirements</ao:a>,
+          all projects must deploy javadoc classifier when have any <code>*.java</code> file, even if only a <code>module-info.java</code>.
+          Projects that have no public API now generate a placeholder javadoc artifact, with the <code>index.html</code>
+          describing the reason why Javadocs are not present.  The generated artifacts also contain an empty <code>element-list</code>.
+        </li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
