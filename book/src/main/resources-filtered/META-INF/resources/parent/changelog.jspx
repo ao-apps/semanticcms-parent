@@ -37,10 +37,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-24T02:34:17Z"
+    dateModified="2023-09-24T05:20:55Z"
     allowRobots="false"
   >
-    <c:set var="latestRelease" value="1.20.0" />
+    <c:set var="latestRelease" value="1.20.1" />
     <c:if test="${
       fn:endsWith('@{project.version}', '-SNAPSHOT')
       and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')
@@ -53,15 +53,32 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>
-            Removed <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
-            from the default for all projects.
-          </li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.20.1"
+      datePublished="2023-09-24T05:20:55Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+      newsAllowRobots="true"
+    >
+      <ul>
+        <li>
+          Removed <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
+          from the default for all projects.
+        </li>
+        <li>
+          Removed incorrect direct declaration of a POM dependency.  Uses of the previous release may fail with:
+          <code>
+            Execution attach-javadocs of goal org.apache.maven.plugins:maven-javadoc-plugin:3.6.0:jar failed:
+            '…/javaee-web-api-bom-7.0.1.pom' not allowed on the path, only outputDirectories and jars are accepted
+          </code>
+        </li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
