@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2023-09-24T05:20:55Z"
+    dateModified="2023-09-25T01:33:49Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.1" />
@@ -67,7 +67,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     >
       <ul>
         <li>
-          Removed <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&lt;]]></ao:a>
+          Removed <ao:a href="https://maven.apache.org/plugins/maven-dependency-plugin/analyze-only-mojo.html#ignoredUnusedDeclaredDependencies"><![CDATA[&lt;ignoredUnusedDeclaredDependencies&gt;&lt;dependency&gt;*:*:pom:*&lt;/dependency&gt;&lt;/ignoredUnusedDeclaredDependencies&gt;]]></ao:a>
           from the default for all projects.
         </li>
         <li>
