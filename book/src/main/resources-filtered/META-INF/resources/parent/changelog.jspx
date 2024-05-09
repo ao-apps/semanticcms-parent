@@ -37,10 +37,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2024-01-08T00:08:41Z"
+    dateModified="2024-05-09T22:04:58Z"
     allowRobots="false"
   >
-    <c:set var="latestRelease" value="1.20.1" />
+    <c:set var="latestRelease" value="1.20.2" />
     <c:if test="${
       fn:endsWith('@{project.version}', '-SNAPSHOT')
       and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')
@@ -53,25 +53,35 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      >
-        <ul>
-          <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
-          <li>Updated plugin versions.</li>
-          <li>
-            Upgraded <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>
-            to 3.6.3.  <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">MJAVADOC-682</ao:a>
-            is resolved so removed the "reactor" profile.
-          </li>
-          <li>Java updates:
-            <ol>
-              <li>Java 20 is now end-of-life</li>
-              <li>Java 21 is now current stable</li>
-              <li>Java 22 is new beta</li>
-            </ol>
-          </li>
-        </ul>
-      </changelog:release>
+      />
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.20.2"
+      datePublished="2024-05-09T22:04:58Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+      newsAllowRobots="true"
+    >
+      <ul>
+        <li>Updated to latest release of <ao:a href="https://github.com/s4u/pgp-keys-map">PGP keys map to maven artifacts</ao:a>.</li>
+        <li>Updated plugin versions.</li>
+        <li>
+          Upgraded <ao:a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</ao:a>
+          to 3.6.3.  <ao:a href="https://issues.apache.org/jira/projects/MJAVADOC/issues/MJAVADOC-682">MJAVADOC-682</ao:a>
+          is resolved so removed the "reactor" profile.
+        </li>
+        <li>Java updates:
+          <ol>
+            <li>Java 20 is now end-of-life</li>
+            <li>Java 21 is now current stable</li>
+            <li>Java 22 is new beta</li>
+          </ol>
+        </li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
