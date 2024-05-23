@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2024-05-23T06:38:35Z"
+    dateModified="2024-05-23T18:55:34Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.2" />
@@ -56,6 +56,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
       >
         <ul>
           <li>Updated plugin versions.</li>
+          <li>
+            Temporarily added new PGP keys that we'll work on getting merged into
+            <ao:a href="https://github.com/s4u/pgp-keys-map">s4u/pgp-keys-map</ao:a>.
+          </li>
         </ul>
       </changelog:release>
     </c:if>
