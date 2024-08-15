@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2024-07-22T12:50:49Z"
+    dateModified="2024-08-15T02:21:27Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -53,7 +53,11 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>Updated plugin versions.</li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
