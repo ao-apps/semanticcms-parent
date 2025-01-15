@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-parent - Parent POM for all SemanticCMS packages.
-Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2024-08-31T19:37:53Z"
+    dateModified="2025-01-15T05:53:57Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -57,6 +57,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>Updated plugin versions.</li>
           <li>Updated to <ao:a href="https://checkstyle.org/releasenotes.html#Release_10.18.1">Checkstyle 10.18.1</ao:a>.</li>
+          <li>Removed support for <ao:a href="https://github.com/openrewrite/rewrite-maven-plugin">rewrite-maven-plugin</ao:a>.</li>
         </ul>
       </changelog:release>
     </c:if>
