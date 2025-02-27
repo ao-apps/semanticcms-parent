@@ -926,7 +926,11 @@ or any build that adds or removes build artifacts."""
     always {
       // Rename pom.xml so as to not have old left-over versions of parents picked-up by other projects.
       // Trying to use <relativePath /> on all projects broke our developer reactor builds, so this is our workaround.
-      sh "${niceCmd}mv -T -f pom.xml pom-do-not-use-me-as-parent.xml"
+      script {
+        if (fileExists('pom.xml')) {
+          sh "${niceCmd}mv -T -f pom.xml pom-do-not-use-me-as-parent.xml"
+        }
+      }
     }
     // End custom
   }
