@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2025-07-02T23:05:45Z"
+    dateModified="2025-11-22T08:08:36Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -1431,7 +1431,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
           <ao:a rel="nofollow" href="https://docs.oracle.com/javaee/6/">Java EE Web API 6</ao:a>
           from <ao:a href="https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html#Controlling_which_dependencies_are_processed">version updates</ao:a>.
           Instead, projects are encouraged to use the new
-          <ao:a href="https://oss.aoapps.com/javaee-web-api-bom/">Java EE Web Profile BOM</ao:a> project.
+          <ao:a href="https://oss.aoapps.com/jakartaee-web-profile-bom/">Java EE Web Profile BOM</ao:a> project.
         </li>
       </ul>
     </changelog:release>
