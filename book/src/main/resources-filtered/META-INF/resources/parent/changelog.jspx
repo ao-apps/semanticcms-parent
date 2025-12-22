@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2025-11-22T08:08:36Z"
+    dateModified="2025-12-22T04:00:01Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -63,6 +63,12 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             via <ao:a href="https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/">Publish OSSRH Staging API</ao:a>.
             The Nexus Repository Manager URL property <code>$nexusUrl</code> has been removed entirely, since all
             deployment now goes through a single default endpoint.
+          </li>
+          <li>
+            No longer using <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#passphrase">deprecated &lt;passphrase&gt; parameter</ao:a>
+            for <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/index.html">Apache Maven GPG Plugin</ao:a>.
+            Instead, using <code>gpg-agent</code> for development systems and <code>MAVEN_GPG_PASSPHRASE</code>
+            environment variable for <ao:a href="https://www.jenkins.io/">Jenkins</ao:a> CI/CD builds.
           </li>
         </ul>
       </changelog:release>
