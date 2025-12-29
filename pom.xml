@@ -35,6 +35,14 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
   <properties>
     <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
     <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
+    <!-- Java 17 -->
+    <javase.version>17</javase.version>
+    <javase.release>17</javase.release>
+    <javadoc.link.javase>${javadoc.link.javase.17}</javadoc.link.javase>
+    <!-- These values are copied from the project being documented -->
+    <!-- Java 17 -->
+    <documented.javase.version>17</documented.javase.version>
+    <documented.javadoc.link.javase>${javadoc.link.javase.17}</documented.javadoc.link.javase>
   </properties>
 
   <name>SemanticCMS Parent</name>
