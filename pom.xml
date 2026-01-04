@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-parent - Parent POM for all SemanticCMS packages.
-Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -39,10 +39,16 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     <javase.version>17</javase.version>
     <javase.release>17</javase.release>
     <javadoc.link.javase>${javadoc.link.javase.17}</javadoc.link.javase>
+    <!-- Jakarta EE 10 -->
+    <javaee.version>10</javaee.version>
+    <javadoc.link.javaee>${javadoc.link.jakartaee.10}</javadoc.link.javaee>
     <!-- These values are copied from the project being documented -->
     <!-- Java 17 -->
     <documented.javase.version>17</documented.javase.version>
     <documented.javadoc.link.javase>${javadoc.link.javase.17}</documented.javadoc.link.javase>
+    <!-- Jakarta EE 10 -->
+    <documented.javaee.version>10</documented.javaee.version>
+    <documented.javadoc.link.javaee>${javadoc.link.jakartaee.10}</documented.javadoc.link.javaee>
   </properties>
 
   <name>SemanticCMS Parent</name>
