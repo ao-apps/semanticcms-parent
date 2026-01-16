@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2026-01-15T22:52:15Z"
+    dateModified="2026-01-15T23:34:39Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -76,6 +76,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             New <code>\${notDevMode}</code> property that is the negation of the existing <code>\${devMode}</code> property.
             It will be <code>false</code> only when the "development" profile is active and <code>true</code> otherwise.
           </li>
+          <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/2.0.0.html">Apache Axis2 2.0.0</ao:a>.</li>
         </ul>
       </changelog:release>
     </c:if>
