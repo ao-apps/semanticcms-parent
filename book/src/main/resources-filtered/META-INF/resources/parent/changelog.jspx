@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2026-01-15T23:34:39Z"
+    dateModified="2026-01-23T09:32:50Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -77,6 +77,35 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
             It will be <code>false</code> only when the "development" profile is active and <code>true</code> otherwise.
           </li>
           <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/2.0.0.html">Apache Axis2 2.0.0</ao:a>.</li>
+          <li>
+            <p>
+              New set of <code>publish.tomcat7-maven-plugin.*</code> profiles that centralize configuration of
+              deployments via <ao:a href="https://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/">tomcat7-maven-plugin</ao:a>.
+              Profiles are enabled in <code>profile.d/</code> and configured via properties.
+            </p>
+            Supports:
+            <ul>
+              <li>Both non-parallel and <ao:a href="https://tomcat.apache.org/tomcat-10.1-doc/config/context.html#Parallel_deployment">parallel deployments</ao:a>.</li>
+              <li>Up to two Tomcat instances with per-instance configurations and concurrent deployment.</li>
+              <li>Deployment actions use username and password from <code>~/.m2/settings.xml</code>.</li>
+              <li>
+                Skips deployment if server already running the same as current build by fingerprint comparison.
+                This interacts well with reproducible builds.
+              </li>
+              <li>
+                Parallel deployments use timestamp-based version to help Tomcat retain the correct versions.
+                Previously, "build-999" was not replaced by "build-1000".
+              </li>
+              <li>For Jenkins CI/CD builds, includes "-build-###" in the version.</li>
+              <li>
+                For non-parallel deployments, restarts Tomcat and clears the work directory of all <code>*.java</code>
+                and <code>*.class</code> files.
+              </li>
+              <li>Verifies deployed fingerprint matches current build to catch quietly failing deployment scenarios.</li>
+              <li>For parallel builds, verifies deployed version matches expected version to catch quietly failing deployment scenarios.</li>
+              <li>Both global and per-Tomcat warmup/test HTTP requests.</li>
+            </ul>
+          </li>
         </ul>
       </changelog:release>
     </c:if>
