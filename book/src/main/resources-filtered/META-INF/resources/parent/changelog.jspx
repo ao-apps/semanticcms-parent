@@ -37,7 +37,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2026-01-23T09:32:50Z"
+    dateModified="2026-01-30T07:16:57Z"
     allowRobots="false"
   >
     <c:set var="latestRelease" value="1.20.3" />
@@ -106,6 +106,7 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
               <li>Both global and per-Tomcat warmup/test HTTP requests.</li>
             </ul>
           </li>
+          <li>Updated plugin dependencies.</li>
         </ul>
       </changelog:release>
     </c:if>
