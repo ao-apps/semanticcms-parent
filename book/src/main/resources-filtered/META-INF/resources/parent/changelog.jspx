@@ -37,10 +37,10 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-11-13T18:03:31-06:00"
-    dateModified="2026-01-30T07:16:57Z"
+    dateModified="2026-01-31T18:28:12Z"
     allowRobots="false"
   >
-    <c:set var="latestRelease" value="1.20.3" />
+    <c:set var="latestRelease" value="1.21.0" />
     <c:if test="${
       fn:endsWith('@{project.version}', '-SNAPSHOT')
       and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')
@@ -56,60 +56,73 @@ along with semanticcms-parent.  If not, see <https://www.gnu.org/licenses/>.
         <ul>
           <li>Minimum Java version changed from 11 to 17.</li>
           <li>Updated to <ao:a href="https://jakarta.ee/specifications/webprofile/10/">Jakarta EE Web Profile 10</ao:a> (Servlet 6.0, JSP 3.1, EL 5.0, and JSTL 3.0).</li>
-          <li>Updated plugin versions.</li>
-          <li>Updated to <ao:a href="https://checkstyle.org/releasenotes.html#Release_13.0.0">Checkstyle 13.0.0</ao:a>.</li>
-          <li>Removed support for <ao:a href="https://github.com/openrewrite/rewrite-maven-plugin">rewrite-maven-plugin</ao:a>.</li>
-          <li>
-            Sonatype's <ao:a href="https://central.sonatype.org/pages/ossrh-eol/">OSSRH service has been discontinued</ao:a>.
-            Open-source components are now deployed to <ao:a href="https://central.sonatype.com/">The Central Repository</ao:a>
-            via <ao:a href="https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/">Publish OSSRH Staging API</ao:a>.
-            The Nexus Repository Manager URL property <code>$nexusUrl</code> has been removed entirely, since all
-            deployment now goes through a single default endpoint.
-          </li>
-          <li>
-            No longer using <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#passphrase"><![CDATA[deprecated &lt;passphrase&gt; parameter]]></ao:a>
-            for <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/index.html">Apache Maven GPG Plugin</ao:a>.
-            Instead, using <code>gpg-agent</code> for development systems and <code>MAVEN_GPG_PASSPHRASE</code>
-            environment variable for <ao:a href="https://www.jenkins.io/">Jenkins</ao:a> CI/CD builds.
-          </li>
-          <li>
-            New <code>\${notDevMode}</code> property that is the negation of the existing <code>\${devMode}</code> property.
-            It will be <code>false</code> only when the "development" profile is active and <code>true</code> otherwise.
-          </li>
-          <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/2.0.0.html">Apache Axis2 2.0.0</ao:a>.</li>
-          <li>
-            <p>
-              New set of <code>publish.tomcat7-maven-plugin.*</code> profiles that centralize configuration of
-              deployments via <ao:a href="https://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/">tomcat7-maven-plugin</ao:a>.
-              Profiles are enabled in <code>profile.d/</code> and configured via properties.
-            </p>
-            Supports:
-            <ul>
-              <li>Both non-parallel and <ao:a href="https://tomcat.apache.org/tomcat-10.1-doc/config/context.html#Parallel_deployment">parallel deployments</ao:a>.</li>
-              <li>Up to two Tomcat instances with per-instance configurations and concurrent deployment.</li>
-              <li>Deployment actions use username and password from <code>~/.m2/settings.xml</code>.</li>
-              <li>
-                Skips deployment if server already running the same as current build by fingerprint comparison.
-                This interacts well with reproducible builds.
-              </li>
-              <li>
-                Parallel deployments use timestamp-based version to help Tomcat retain the correct versions.
-                Previously, "build-999" was not replaced by "build-1000".
-              </li>
-              <li>For Jenkins CI/CD builds, includes "-build-###" in the version.</li>
-              <li>
-                For non-parallel deployments, restarts Tomcat and clears the work directory of all <code>*.java</code>
-                and <code>*.class</code> files.
-              </li>
-              <li>Verifies deployed fingerprint matches current build to catch quietly failing deployment scenarios.</li>
-              <li>For parallel builds, verifies deployed version matches expected version to catch quietly failing deployment scenarios.</li>
-              <li>Both global and per-Tomcat warmup/test HTTP requests.</li>
-            </ul>
-          </li>
-          <li>Updated plugin dependencies.</li>
         </ul>
       </changelog:release>
     </c:if>
+
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.21.0"
+      datePublished="2026-01-31T18:28:12Z"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+      newsAllowRobots="true"
+    >
+      <ul>
+        <li>Updated plugin versions.</li>
+        <li>Updated to <ao:a href="https://checkstyle.org/releasenotes.html#Release_13.0.0">Checkstyle 13.0.0</ao:a>.</li>
+        <li>Removed support for <ao:a href="https://github.com/openrewrite/rewrite-maven-plugin">rewrite-maven-plugin</ao:a>.</li>
+        <li>
+          Sonatype's <ao:a href="https://central.sonatype.org/pages/ossrh-eol/">OSSRH service has been discontinued</ao:a>.
+          Open-source components are now deployed to <ao:a href="https://central.sonatype.com/">The Central Repository</ao:a>
+          via <ao:a href="https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/">Publish OSSRH Staging API</ao:a>.
+          The Nexus Repository Manager URL property <code>$nexusUrl</code> has been removed entirely, since all
+          deployment now goes through a single default endpoint.
+        </li>
+        <li>
+          No longer using <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html#passphrase"><![CDATA[deprecated &lt;passphrase&gt; parameter]]></ao:a>
+          for <ao:a href="https://maven.apache.org/plugins/maven-gpg-plugin/index.html">Apache Maven GPG Plugin</ao:a>.
+          Instead, using <code>gpg-agent</code> for development systems and <code>MAVEN_GPG_PASSPHRASE</code>
+          environment variable for <ao:a href="https://www.jenkins.io/">Jenkins</ao:a> CI/CD builds.
+        </li>
+        <li>
+          New <code>\${notDevMode}</code> property that is the negation of the existing <code>\${devMode}</code> property.
+          It will be <code>false</code> only when the "development" profile is active and <code>true</code> otherwise.
+        </li>
+        <li>Updated to <ao:a href="https://axis.apache.org/axis2/java/core/release-notes/2.0.0.html">Apache Axis2 2.0.0</ao:a>.</li>
+        <li>
+          <p>
+            New set of <code>publish.tomcat7-maven-plugin.*</code> profiles that centralize configuration of
+            deployments via <ao:a href="https://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/">tomcat7-maven-plugin</ao:a>.
+            Profiles are enabled in <code>profile.d/</code> and configured via properties.
+          </p>
+          Supports:
+          <ul>
+            <li>Both non-parallel and <ao:a href="https://tomcat.apache.org/tomcat-10.1-doc/config/context.html#Parallel_deployment">parallel deployments</ao:a>.</li>
+            <li>Up to two Tomcat instances with per-instance configurations and concurrent deployment.</li>
+            <li>Deployment actions use username and password from <code>~/.m2/settings.xml</code>.</li>
+            <li>
+              Skips deployment if server already running the same as current build by fingerprint comparison.
+              This interacts well with reproducible builds.
+            </li>
+            <li>
+              Parallel deployments use timestamp-based version to help Tomcat retain the correct versions.
+              Previously, "build-999" was not replaced by "build-1000".
+            </li>
+            <li>For Jenkins CI/CD builds, includes "-build-###" in the version.</li>
+            <li>
+              For non-parallel deployments, restarts Tomcat and clears the work directory of all <code>*.java</code>
+              and <code>*.class</code> files.
+            </li>
+            <li>Verifies deployed fingerprint matches current build to catch quietly failing deployment scenarios.</li>
+            <li>For parallel builds, verifies deployed version matches expected version to catch quietly failing deployment scenarios.</li>
+            <li>Both global and per-Tomcat warmup/test HTTP requests.</li>
+          </ul>
+        </li>
+        <li>Updated plugin dependencies.</li>
+      </ul>
+    </changelog:release>
 
     <changelog:release
       projectName="@{documented.name}"
