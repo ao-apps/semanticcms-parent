@@ -38,6 +38,12 @@ binding.setVariable('upstreamProjects', [
 binding.setVariable('buildJdks', ['17', '21', '25', '27']) // Changes must be copied to matrix axes!
 binding.setVariable('testJdks', ['17', '21', '25', '27']) // Changes must be copied to matrix axes!
 
+// *-SNAPSHOT projects always build on the latest *-SNAPSHOT parent projects.
+// *-SNAPSHOT parent projects always build with the latest plugins and dependencies.
+// Parent projects are released before project releases, no other branches to audit.
+// Furthermore, ossindex audits would be skipped with "Skipping; POM module".
+binding.setVariable('scmAdditionalAuditBranches', [])
+
 /******************************************************************************************
  *                                                                                        *
  * Everything below this line is identical for all projects, except the copied matrix     *
